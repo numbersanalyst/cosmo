@@ -1,4 +1,7 @@
 body{
-    background-image: cosmo/simple-faded-colorful-wallpaper-preview.jpg
+    /*background-image: cosmo/simple-faded-colorful-wallpaper-preview.jpg*/
     background-color: #cccccc;
+}
+#glownyText{
+    text-align:center;
 }
