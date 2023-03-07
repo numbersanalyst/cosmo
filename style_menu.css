@@ -2,6 +2,6 @@ body{
     /*background-image: cosmo/simple-faded-colorful-wallpaper-preview.jpg*/
     background-color: #cccccc;
 }
-#glownyText{
+#glownyText, #wstep{
     text-align:center;
 }
