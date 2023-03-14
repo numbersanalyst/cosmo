@@ -1,4 +1,4 @@
 import * as THREE from 'three';
 
-// test
-console.log(THREE);
+const camera = new THREE.Camera();
+console.log(camera);
