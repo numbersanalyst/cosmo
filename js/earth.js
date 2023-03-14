@@ -1,1 +1,4 @@
-import * as THREE from 'https://cdn.skypack.dev/three';
+import * as THREE from 'three';
+
+// test
+console.log(THREE);
