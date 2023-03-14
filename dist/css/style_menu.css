@@ -1,0 +1,22 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+main {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 960px;
+    padding: 10px 60px;
+    box-shadow: 2px 4px 10px 2px rgba(0, 0, 0, 0.20);
+    background-color: white;
+}
+section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+body{
+    background: rgb(25,24,37);
+    background: linear-gradient(90deg, rgba(25,24,37,1) 0%, rgba(134,93,255,1) 38%, rgba(227,132,255,1) 96%);
+}
