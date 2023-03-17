@@ -35,3 +35,22 @@ hr {
   color: #191825;
   background-color: #191825;
 }
+footer {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  min-width: 100%;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  position: absolute;
+  text-align: center;
+  height: 20%;
+}
+table {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  color: black;
+}
