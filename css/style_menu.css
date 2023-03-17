@@ -45,6 +45,7 @@ footer {
   margin-bottom: 0%;
   position: absolute;
   text-align: center;
+  color: gray;
 }
 table {
   text-align: center;
@@ -55,9 +56,4 @@ table {
 }
 #license {
   color: gray;
-}
-#footerhr1 {
-  width: 25%;
-  border-width: 0;
-  color: #191825;
 }
