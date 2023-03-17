@@ -28,7 +28,7 @@ body {
 .film {
   width: 100%;
 }
-hr {
+.hr_regular {
   width: 25%;
   height: 5px;
   border-width: 0;
@@ -45,7 +45,7 @@ footer {
   margin-bottom: 0%;
   position: absolute;
   text-align: center;
-  height: 20%;
+  height: 25%;
 }
 table {
   text-align: center;
@@ -53,4 +53,12 @@ table {
   margin-right: auto;
   margin-top: 30px;
   color: black;
+}
+#license {
+  color: gray;
+}
+#footerhr1 {
+  width: 25%;
+  border-width: 0;
+  color: #191825;
 }
