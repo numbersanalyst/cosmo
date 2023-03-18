@@ -7,6 +7,19 @@
     <title>Cosmo</title>
   </head>
   <body>
+    <header>
+      <img class="logo" src="assets/logo.png" alt="logo" />
+      <nav>
+        <a class="cta" href="#"><button>Uruchom Program</button></a>
+      </nav>
+    </header>
+    <script type="text/javascript">
+      window.addEventListener('scroll', function () {
+        var header = document.querySelector('header');
+        header.classlist.toggle('sticky', window.scrollY > 0);
+      });
+    </script>
+
     <main>
       <section id="opis">
         <h1 style="text-align: center">Czym jest COSMO?</h1>
