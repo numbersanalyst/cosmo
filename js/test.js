@@ -22,7 +22,7 @@ const light2 = new THREE.PointLight(colorLight, .5);
 light.position.set(-40, -20, 20);
 light2.position.set(40, 20, 20);
 
-camera.position.z = 15;
+camera.position.z = 10;
 
 cube.rotation.x = 20;
 cube.rotation.z = -20;
@@ -39,3 +39,15 @@ const animate = () =>  {
 }
 
 animate();
+
+document.querySelector('.select-camera').onchange = () => {
+    camera.position.z = document.querySelector('.select-camera').value;
+}
+
+document.querySelector('.btn-color').onclick = () => {
+    cube.material.color = new THREE.Color(0xffffff * Math.random());
+}
+
+document.querySelector('.btn-print').onclick = () => {
+    window.print();
+}
