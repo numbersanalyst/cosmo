@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 let url = "../../subpages/select.html";
 
 document.addEventListener("keydown", (event) => {
