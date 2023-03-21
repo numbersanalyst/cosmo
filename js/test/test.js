@@ -1,3 +1,6 @@
+// Based on hello roman tutorial
+// https://github.com/helloroman
+
 import * as THREE from 'three';
 
 const scene = new THREE.Scene();
