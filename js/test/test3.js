@@ -22,14 +22,17 @@ const handleResize = () => {
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
 };
+window.addEventListener("resize", handleResize);
 
 const loop = () => {
   renderer(scene, camera);
   requestAnimationFrame(loop);
 }
-
-window.addEventListener("resize", handleResize);
 loop();
+
+document.body.onload = () => {
+  document.querySelector("p").style.opacity = 0;
+};
 
 document.addEventListener("keydown", (event) => {
   if (event.isComposing || event.keyCode === 27) {
