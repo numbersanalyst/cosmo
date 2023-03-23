@@ -14,13 +14,13 @@ renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const createTorus = (c=0xffffff, r=4.5,t=1,tSeg=180,rSeg=20,p=3,q=7) => {
+const createTorus = (c=0xffffff, r=5,t=0.7,tSeg=180,rSeg=20,p=3,q=7) => {
   const torusGeo = new THREE.TorusKnotGeometry(r, t, tSeg, rSeg, p, q);
-  const torusMat = new THREE.MeshBasicMaterial({ color: c});
+  const torusMat = new THREE.MeshPhongMaterial({ color: c, shininess: 5});
   return new THREE.Mesh(torusGeo, torusMat);
 };
 
-const createPointLight = (color=0xffffff, i=0.4) => {
+const createPointLight = (color=0xffffff, i=1) => {
   return new THREE.PointLight(color, i);
 };
 
@@ -28,7 +28,7 @@ const fTorus = createTorus();
 scene.add(fTorus);
 
 const l1 = createPointLight();
-l1.position.set(20,20,60);
+l1.position.set(60,60,60);
 scene.add(l1);
 
 const handleResize = () => {
