@@ -40,7 +40,7 @@ const createElectron = (r = 0.4, color = 0xffffff) => {
     const pivot = new THREE.Object3D;
     pivot.add(sphere);
     return {
-        sphere, 
+        sphere,
         pivot
     }
 }
@@ -50,7 +50,7 @@ const e2 = createElectron(0.4);
 const e3 = createElectron(0.4);
 const e4 = createElectron(0.4);
 
-e1.sphere.position.set(10,0,0);
+e1.sphere.position.set(10, 0, 0);
 e2.sphere.position.set(5, 0, 0);
 e3.sphere.position.set(-5, 0, 0);
 e4.sphere.position.set(-10, 0, 0);

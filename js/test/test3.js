@@ -10,7 +10,7 @@ camera = new THREE.PerspectiveCamera(
   0.0001,
   10000
 );
-camera.position.set(0,0,20);
+camera.position.set(0, 0, 20);
 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -26,6 +26,6 @@ const handleResize = () => {
 window.addEventListener("resize", handleResize);
 
 const loop = () => {
-    renderer(scene, camera);
-    requestAnimationFrame(loop);
+  renderer(scene, camera);
+  requestAnimationFrame(loop);
 }
