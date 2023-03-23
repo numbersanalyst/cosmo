@@ -23,9 +23,16 @@ const handleResize = () => {
   camera.updateProjectionMatrix();
 };
 
-window.addEventListener("resize", handleResize);
-
 const loop = () => {
   renderer(scene, camera);
   requestAnimationFrame(loop);
 }
+
+window.addEventListener("resize", handleResize);
+loop();
+
+document.addEventListener("keydown", (event) => {
+  if (event.isComposing || event.keyCode === 27) {
+      history.back();
+  }
+});
