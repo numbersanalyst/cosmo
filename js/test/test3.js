@@ -25,7 +25,7 @@ const handleResize = () => {
 window.addEventListener("resize", handleResize);
 
 const loop = () => {
-  renderer(scene, camera);
+  renderer.render(scene, camera);
   requestAnimationFrame(loop);
 }
 loop();
