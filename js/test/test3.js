@@ -4,10 +4,10 @@ let scene, camera, renderer;
 
 scene = new THREE.Scene();
 camera = new THREE.PerspectiveCamera(
-  50,
+  20,
   window.innerWidth / window.innerHeight,
-  0.0001,
-  10000
+  1,
+  1000
 );
 camera.position.set(0, 0, 40);
 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
