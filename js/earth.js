@@ -10,10 +10,31 @@ renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+const createSphere = (r = 1, c = 0xffffff) => {
+    const sphereGeo = new THREE.SphereGeometry(r, 20, 20);
+    const sphereMat = new THREE.MeshPhongMaterial({
+        color: c,
+        shininess: 30
+    });
+    return new THREE.Mesh(sphereGeo, sphereMat);
+}
+
+const createPointLight = (i = 1, c = 0xffffff) => {
+    return new THREE.PointLight(c, i);
+}
+
+const earth = createSphere(4);
+const light = createPointLight();
+
+light.position.set(-50,50,30);
+
+scene.add(earth, camera);
+camera.add(light);
+
 controls = new OrbitControls(camera, renderer.domElement);
-console.log(controls);
 
 const loop = () => {
+    controls.update();
     renderer.render(scene, camera);
     requestAnimationFrame(loop);
 }
