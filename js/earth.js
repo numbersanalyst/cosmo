@@ -10,7 +10,7 @@ renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls = new OrbitControls(camera, renderer.domElement);
 console.log(controls);
 
 const loop = () => {
