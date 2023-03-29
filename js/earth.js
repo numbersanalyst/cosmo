@@ -35,6 +35,9 @@ controls.minDistance = 10;
 controls.maxDistance = 250;
 
 const loop = () => {
+    if (controls.getDistance() > 30) { controls.rotateSpeed = 1; }
+    else if (controls.getDistance() > 20) { controls.rotateSpeed = 0.4; }
+    else { controls.rotateSpeed = 0.2; }
     controls.update();
     renderer.render(scene, camera);
     requestAnimationFrame(loop);
