@@ -13,8 +13,8 @@ document.body.appendChild(renderer.domElement);
 const texture = new THREE.TextureLoader().load("../assets/textures/8k_earth_daymap.jpg");
 const material = new THREE.MeshPhongMaterial({ map: texture, shininess: 0 });
 
-const createSphere = (r = 1, c = 0xffffff) => {
-    const sphereGeo = new THREE.SphereGeometry(r, 20, 20);
+const createSphere = (r = 5, c = 0xffffff) => {
+    const sphereGeo = new THREE.SphereGeometry(r, 50, 50);
     const sphereMat = material;
     return new THREE.Mesh(sphereGeo, sphereMat);
 }
