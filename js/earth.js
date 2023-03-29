@@ -23,7 +23,7 @@ const createPointLight = (c, i) => {
 const earth = createSphere(5, 50, 50, "../assets/textures/8k_earth_daymap.jpg");
 const light = createPointLight(0xffffff, 1);
 
-light.position.set(-50, 50, 30);
+light.position.set(-50, 50, 25);
 
 scene.add(earth, camera);
 camera.add(light);
