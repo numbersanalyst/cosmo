@@ -10,21 +10,18 @@ renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const texture = new THREE.TextureLoader().load("../assets/textures/8k_earth_daymap.jpg");
-const material = new THREE.MeshPhongMaterial({ map: texture, shininess: 0 });
-
-const createSphere = (r = 5, c = 0xffffff) => {
-    const sphereGeo = new THREE.SphereGeometry(r, 50, 50);
-    const sphereMat = material;
+const createSphere = (r, wSeg, hSeg, mapUrl) => {
+    const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
+    const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl) });
     return new THREE.Mesh(sphereGeo, sphereMat);
 }
 
-const createPointLight = (i = 1, c = 0xffffff) => {
+const createPointLight = (c, i) => {
     return new THREE.PointLight(c, i);
 }
 
-const earth = createSphere(4);
-const light = createPointLight();
+const earth = createSphere(5, 50, 50, "../assets/textures/8k_earth_daymap.jpg");
+const light = createPointLight(0xffffff, 1);
 
 light.position.set(-50, 50, 30);
 
