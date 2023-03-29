@@ -12,7 +12,7 @@ document.body.appendChild(renderer.domElement);
 
 const createSphere = (r, wSeg, hSeg, mapUrl) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-    const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl) });
+    const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl), bumpMap: new THREE.TextureLoader().load(mapUrl) });
     return new THREE.Mesh(sphereGeo, sphereMat);
 }
 
