@@ -32,6 +32,7 @@ scene.add(earth, camera);
 camera.add(light);
 
 controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
 controls.enablePan = false;
 
 const loop = () => {
