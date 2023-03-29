@@ -11,7 +11,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const texture = new THREE.TextureLoader().load("../assets/textures/8k_earth_daymap.jpg");
-const material = new THREE.MeshPhongMaterial( { map: texture, shininess: 0} );
+const material = new THREE.MeshPhongMaterial({ map: texture, shininess: 0 });
 
 const createSphere = (r = 1, c = 0xffffff) => {
     const sphereGeo = new THREE.SphereGeometry(r, 20, 20);
@@ -26,7 +26,7 @@ const createPointLight = (i = 1, c = 0xffffff) => {
 const earth = createSphere(4);
 const light = createPointLight();
 
-light.position.set(-50,50,30);
+light.position.set(-50, 50, 30);
 
 scene.add(earth, camera);
 camera.add(light);
