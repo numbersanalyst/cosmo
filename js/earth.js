@@ -14,11 +14,11 @@ const createSphere = (r, wSeg, hSeg, mapUrl) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
     const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl), bumpMap: new THREE.TextureLoader().load(mapUrl), bumpScale: 0.05 });
     return new THREE.Mesh(sphereGeo, sphereMat);
-}
+};
 
 const createPointLight = (c, i) => {
     return new THREE.PointLight(c, i);
-}
+};
 
 const earth = createSphere(5, 50, 50, "../assets/textures/8k_earth_daymap.jpg");
 const light = createPointLight(0xffffff, 1);
@@ -41,7 +41,7 @@ const loop = () => {
     controls.update();
     renderer.render(scene, camera);
     requestAnimationFrame(loop);
-}
+};
 loop();
 
 const handleResize = () => {
@@ -49,5 +49,5 @@ const handleResize = () => {
     renderer.setSize(innerWidth, innerHeight);
     camera.aspect = innerWidth / innerHeight;
     camera.updateProjectionMatrix();
-}
+};
 window.addEventListener("resize", handleResize);
