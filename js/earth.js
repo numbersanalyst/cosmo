@@ -10,9 +10,10 @@ renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const createSphere = (r, wSeg, hSeg, mapUrl) => {
+const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl=null) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-    const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl), bumpMap: new THREE.TextureLoader().load(mapUrl), bumpScale: 0.05 });
+    const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl) });
+    if (bMapUrl != null) { sphereMat.bumpMap = new THREE.TextureLoader().load(bMapUrl); }
     return new THREE.Mesh(sphereGeo, sphereMat);
 };
 
@@ -20,7 +21,13 @@ const createPointLight = (c, i) => {
     return new THREE.PointLight(c, i);
 };
 
-const earth = createSphere(5, 50, 50, "../assets/textures/8k_earth_daymap.jpg");
+const textures = [
+    "../assets/textures/land_ocean_ice_cloud_4096_custom.png",
+    "../assets/textures/land_ocean_ice_8192.png",
+    "../assets/textures/gebco_08_rev_elev_8192_custom.png"
+];
+
+const earth = createSphere(5, 50, 50, textures[0]);
 const light = createPointLight(0xffffff, 1);
 
 light.position.set(-50, 50, 25);
