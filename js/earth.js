@@ -22,9 +22,9 @@ const createPointLight = (c, i) => {
 };
 
 const textures = [
-    "../assets/textures/land_ocean_ice_cloud_4096_custom.png",
-    "../assets/textures/land_ocean_ice_8192.png",
-    "../assets/textures/gebco_08_rev_elev_8192_custom.png"
+    "../assets/textures/4k_earth_land_ocean_ice_cloud.png",
+    "../assets/textures/8k_earth_land_ocean_ice.png",
+    "../assets/textures/8k_earth_topography.png"
 ];
 
 const earthTop = createSphere(5, 50, 50, textures[0]);
