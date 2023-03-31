@@ -10,10 +10,10 @@ renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl = null) => {
+const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
     const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl) });
-    if (bMapUrl != null) { sphereMat.bumpMap = new THREE.TextureLoader().load(bMapUrl); }
+    if (bMapUrl) { sphereMat.bumpMap = new THREE.TextureLoader().load(bMapUrl); }
     return new THREE.Mesh(sphereGeo, sphereMat);
 };
 
@@ -58,7 +58,7 @@ const loop = () => {
     }
     else if (controls.getDistance() > 20) {
         controls.rotateSpeed = 0.4;
-        
+
         if (change == false) {
             earthTop.visible = false;
             earthUnder.visible = true;
@@ -67,7 +67,7 @@ const loop = () => {
         }
     }
     else {
-        controls.rotateSpeed = 0.2; 
+        controls.rotateSpeed = 0.2;
     }
     controls.update();
     renderer.render(scene, camera);
