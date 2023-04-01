@@ -50,6 +50,7 @@ const earthUnder = createSphere(5, 50, 50, textures.earthLand, textures.earthTop
 const background = createSphere(100, 50, 50, textures.stars, false, true);
 const light = createPointLight(0xffffff, 1);
 
+background.rotation.x = 0.5;
 light.position.set(-50, 50, 25);
 
 camera.add(light);
