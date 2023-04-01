@@ -37,38 +37,37 @@ const earthTop = createSphere(5, 50, 50, earthTexture);
 const earthUnder = createSphere(5, 50, 50, earthLandTexture, earthTopography);
 const light = createPointLight(0xffffff, 1);
 
-earthUnder.visible = false;
 light.position.set(-50, 50, 25);
 
 camera.add(light);
 scene.add(earthTop, earthUnder, camera);
 
-let change = false;
+let option, distance;
 
 const loop = () => {
-    if (controls.getDistance() > 30) {
-        if (change == true) {
+    distance = controls.getDistance();
+
+    if (distance > 30) {
+        if (option != 1) {
             controls.rotateSpeed = 1;
             earthTop.visible = true;
             earthUnder.visible = false;
 
-            change = false;
+            option = 1;
         }
-    }
-    else if (controls.getDistance() > 20) {
-        if (change == false) {
+    } else if (distance > 20) {
+        if (option != 2) {
             controls.rotateSpeed = 0.4;
             earthTop.visible = false;
             earthUnder.visible = true;
 
-            change = true;
+            option = 2;
         }
-    }
-    else {
-        if (change == true) {
+    } else {
+        if (option != 3) {
             controls.rotateSpeed = 0.2;
 
-            change = false;
+            option = 3;
         }
     }
     controls.update();
