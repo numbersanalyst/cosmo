@@ -22,7 +22,7 @@ controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 10;
-controls.maxDistance = 250;
+controls.maxDistance = 200;
 
 const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
