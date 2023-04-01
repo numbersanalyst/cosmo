@@ -4,6 +4,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 const earthTexture = "../assets/textures/4k_earth_land_ocean_ice_cloud.png";
 const earthLandTexture = "../assets/textures/8k_earth_land_ocean_ice.png";
 const earthTopography = "../assets/textures/8k_earth_topography.png";
+const textureLoader = new THREE.TextureLoader();
 
 let scene, camera, controls, renderer;
 
@@ -24,7 +25,7 @@ controls.maxDistance = 250;
 
 const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-    const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl) });
+    const sphereMat = new THREE.MeshStandardMaterial({ map: textureLoader.load(mapUrl) });
     if (bMapUrl) {
         sphereMat.bumpMap = textureLoader.load(bMapUrl),
         sphereMat.bumpScale = 0.1
