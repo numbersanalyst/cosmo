@@ -25,7 +25,10 @@ controls.maxDistance = 250;
 const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
     const sphereMat = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load(mapUrl) });
-    if (bMapUrl) { sphereMat.bumpMap = new THREE.TextureLoader().load(bMapUrl); }
+    if (bMapUrl) {
+        sphereMat.bumpMap = textureLoader.load(bMapUrl),
+        sphereMat.bumpScale = 0.1
+    }
     return new THREE.Mesh(sphereGeo, sphereMat);
 };
 
