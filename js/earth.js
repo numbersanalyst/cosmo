@@ -1,11 +1,13 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-const earthTexture = "../assets/textures/4k_earth_land_ocean_ice_cloud.png";
-const earthLandTexture = "../assets/textures/8k_earth_land_ocean_ice.png";
-const earthTopography = "../assets/textures/8k_earth_topography.png";
-const starsTexture = "../assets/textures/8k_stars_milky_way.jpg";
 const textureLoader = new THREE.TextureLoader();
+const textures = {
+    earth: textureLoader.load("../assets/textures/4k_earth_land_ocean_ice_cloud.png"),
+    earthLand: textureLoader.load("../assets/textures/8k_earth_land_ocean_ice.png"),
+    earthTopo: textureLoader.load("../assets/textures/8k_earth_topography.png"),
+    stars: textureLoader.load("../assets/textures/8k_stars_milky_way.jpg")
+};
 
 let scene, camera, controls, renderer;
 
@@ -26,9 +28,9 @@ controls.maxDistance = 200;
 
 const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
     const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-    const sphereMat = new THREE.MeshStandardMaterial({ map: textureLoader.load(mapUrl) });
+    const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
     if (bMapUrl) {
-        sphereMat.bumpMap = textureLoader.load(bMapUrl);
+        sphereMat.bumpMap = bMapUrl;
         sphereMat.bumpScale = 0.1;
     }
     if (backSide) {
@@ -43,9 +45,9 @@ const createPointLight = (c, i) => {
     return new THREE.PointLight(c, i);
 };
 
-const earthTop = createSphere(5, 50, 50, earthTexture);
-const earthUnder = createSphere(5, 50, 50, earthLandTexture, earthTopography);
-const background = createSphere(100, 50, 50, starsTexture, false, true);
+const earthTop = createSphere(5, 50, 50, textures.earth);
+const earthUnder = createSphere(5, 50, 50, textures.earthLand, textures.earthTopo);
+const background = createSphere(100, 50, 50, textures.stars, false, true);
 const light = createPointLight(0xffffff, 1);
 
 light.position.set(-50, 50, 25);
