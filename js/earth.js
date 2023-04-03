@@ -8,6 +8,7 @@ const textures = {
     earthTopo: textureLoader.load("../assets/textures/8k_earth_topography.png"),
     stars: textureLoader.load("../assets/textures/8k_stars_milky_way.jpg")
 };
+const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 
 let scene, camera, controls, renderer;
 
@@ -48,8 +49,8 @@ const createPointLight = (c, i) => {
 const earthTop = createSphere(5, 50, 50, textures.earth);
 const earthUnder = createSphere(5, 50, 50, textures.earthLand, textures.earthTopo);
 const background = createSphere(100, 50, 50, textures.stars, false, true);
-const light1 = createPointLight(0xffffff, 1);
-const light2 = createPointLight(0xffffff, 0.1);
+const light1 = createPointLight(colorLight, 1);
+const light2 = createPointLight(colorLight, 0.1);
 
 background.rotation.x = 0.5;
 light1.position.set(-50, 50, 30);
