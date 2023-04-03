@@ -48,12 +48,14 @@ const createPointLight = (c, i) => {
 const earthTop = createSphere(5, 50, 50, textures.earth);
 const earthUnder = createSphere(5, 50, 50, textures.earthLand, textures.earthTopo);
 const background = createSphere(100, 50, 50, textures.stars, false, true);
-const light = createPointLight(0xffffff, 1);
+const light1 = createPointLight(0xffffff, 1);
+const light2 = createPointLight(0xffffff, 0.1);
 
 background.rotation.x = 0.5;
-light.position.set(-50, 50, 25);
+light1.position.set(-50, 50, 30);
+light2.position.set(0, 0, 30);
 
-camera.add(light);
+camera.add(light1, light2);
 scene.add(earthTop, earthUnder, background, camera);
 
 let option, distance;
