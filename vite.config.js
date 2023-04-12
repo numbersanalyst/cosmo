@@ -8,6 +8,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        select: resolve(__dirname, 'subpages/select.html'),
         earth: resolve(__dirname, 'subpages/earth.html'),
       },
     },
