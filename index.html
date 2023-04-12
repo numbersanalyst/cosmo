@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Cosmo</title>
+    <link rel="stylesheet" href="/assets/index-d876d9d6.css">
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="assets/logo.png" alt="logo" />
+      <nav>
+        <a class="cta" href="subpages/select.html"><button>Uruchom Program</button></a>
+      </nav>
+    </header>
+    <script type="text/javascript">
+      window.addEventListener('scroll', function () {
+        var header = document.querySelector('header');
+        header.classlist.toggle('sticky', window.scrollY > 0);
+      });
+    </script>
+
+    <main>
+      <section id="opis">
+        <h1 style="text-align: center">Czym jest COSMO?</h1>
+        <p>
+          "Cosmo" to aplikacja służąca do wyświetlania różnych modeli planet w
+          3D i poznawaniu wrzechświata.
+        </p>
+        <p>
+          Aplikacja umożliwia użytkownikowi oglądanie planet z różnych
+          perspektyw i z bliska, a także dostarcza informacje na temat każdej
+          planety, takie jak jej rozmiar, masę, skład chemiczny, obieg wokół
+          słońca, a nawet historię misji kosmicznych związanych z daną planetą.
+        </p>
+        <p>
+          Użytkownik może także oglądać różne gwiazdy, układy planetarne i
+          galaktyki w 3D. Aplikacja "Cosmo" jest wspaniałym narzędziem dla osób
+          zainteresowanych astronomią i naukami kosmicznymi, które chcą
+          poszerzyć swoją wiedzę o kosmosie i eksploracji kosmosu.
+        </p>
+      </section>
+      <br />
+      <hr class="hr_regular" />
+      <br />
+      <section class="film">
+        <iframe
+          width="100%"
+          height="400"
+          src="https://www.youtube.com/embed/21X5lGlDOfg?autoplay=1;&mute=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </section>
+      <br />
+      <hr class="hr_regular" />
+      <br />
+    </main>
+    <footer>
+      <br />
+      <hr
+        style="
+          width: 25%;
+          height: 1px;
+          border-width: 0;
+          color: gray;
+          background-color: gray;
+        "
+      />
+      <form>
+        <h2 style="color: black">Kontakt:</h2>
+        <table>
+          <tr>
+            <td><p>Imię</p></td>
+            <td><input type="text" id="imie" max="40" /></td>
+          </tr>
+          <tr>
+            <td><p>Nazwisko</p></td>
+            <td><input type="text" id="nazwisko" max="40" /></td>
+          </tr>
+          <tr>
+            <td><p>Telefon</p></td>
+            <td><input type="text" id="telefon" max="40" /></td>
+          </tr>
+          <tr>
+            <td><p>E-Mail</p></td>
+            <td><input type="email" id="email" max="100" /></td>
+          </tr>
+        </table>
+        <textarea max="350" placeholder="Maksymalnie 350 słów."></textarea>
+        <br />
+        <input type="submit" id="send" value="Wyślij" />
+      </form>
+      <br />
+      <hr
+        style="
+          width: 25%;
+          height: 1px;
+          border-width: 0;
+          color: gray;
+          background-color: gray;
+        "
+      />
+      <p>
+        MIT License Copyright (c) 2023 Numbers analyst Permission is hereby
+        granted, free of charge, to any person obtaining a copy of this software
+        and associated documentation files (the "Software"), to deal in the
+        Software without restriction, including without limitation the rights to
+        use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions: The above
+        copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED
+        "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+        NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+        PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+        COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+        WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+        OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+      </p>
+    </footer>
+  </body>
+</html>
