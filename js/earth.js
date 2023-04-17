@@ -6,9 +6,9 @@ const textures = {
   earth: textureLoader.load(
     '/public/4k_earth_land_ocean_ice_cloud.png'
   ),
-  earthLand: textureLoader.load('/public/textures/8k_earth_land_ocean_ice.png'),
-  earthTopo: textureLoader.load('/public/textures/8k_earth_topography.png'),
-  stars: textureLoader.load('/public/textures/8k_stars_milky_way.jpg'),
+  earthLand: textureLoader.load('/public/8k_earth_land_ocean_ice.png'),
+  earthTopo: textureLoader.load('/public/8k_earth_topography.png'),
+  stars: textureLoader.load('/public/8k_stars_milky_way.jpg'),
 };
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 
