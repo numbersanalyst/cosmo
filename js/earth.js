@@ -1,9 +1,11 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+import earthPath from '/4k_earth_land_ocean_ice_cloud.png';
+
 const textureLoader = new THREE.TextureLoader();
 const textures = {
-  earth: textureLoader.load('/4k_earth_land_ocean_ice_cloud.png'),
+  earth: textureLoader.load(earthPath),
   earthLand: textureLoader.load('/8k_earth_land_ocean_ice.png'),
   earthTopo: textureLoader.load('/8k_earth_topography.png'),
   stars: textureLoader.load('/8k_stars_milky_way.jpg'),
