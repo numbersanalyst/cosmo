@@ -7,6 +7,7 @@ export default defineConfig({
   root,
   base: '',
   build: {
+    outDir: '../dist',
     chunkSizeWarningLimit: 1600,
     rollupOptions: {
       input: {
