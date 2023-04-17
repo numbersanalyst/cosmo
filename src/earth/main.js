@@ -116,3 +116,18 @@ const handleResize = () => {
   camera.updateProjectionMatrix();
 }
 window.addEventListener('resize', handleResize);
+
+
+document.body.onload = () => {
+  document.querySelector('div').style.opacity = 0;
+};
+
+setTimeout(() => {
+  document.querySelector('div').style.display = 'none';
+}, 10000);
+
+document.addEventListener('keydown', (event) => {
+  if (event.isComposing || event.keyCode === 27) {
+    history.back();
+  }
+});
