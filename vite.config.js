@@ -1,16 +1,18 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
+const root = resolve(__dirname, 'src');
+
 export default defineConfig({
+  root,
   base: '',
-  root: 'src',
   build: {
     chunkSizeWarningLimit: 1600,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        select: resolve(__dirname, 'subpages/select.html'),
-        earth: resolve(__dirname, 'subpages/earth.html'),
+        main: resolve(root, 'index.html'),
+        select: resolve(root, 'subpages/select.html'),
+        earth: resolve(root, 'subpages/earth.html'),
       },
     },
   },
