@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import * as THREE from 'three';
 
 let scene, camera, renderer;
 
@@ -59,13 +59,13 @@ const handleResize = () => {
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
 };
-window.addEventListener("resize", handleResize);
+window.addEventListener('resize', handleResize);
 
 document.body.onload = () => {
-  document.querySelector("p").style.opacity = 0;
+  document.querySelector('p').style.opacity = 0;
 };
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener('keydown', (event) => {
   if (event.isComposing || event.keyCode === 27) {
     history.back();
   }

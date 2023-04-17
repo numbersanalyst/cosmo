@@ -83,12 +83,12 @@ const loop = () => {
 loop();
 window.addEventListener('resize', handleResize);
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener('keydown', (event) => {
     if (event.isComposing || event.keyCode === 27) {
         history.back();
     }
 });
 
 document.body.onload = () => {
-    document.querySelector("p").style.opacity = 0;
+    document.querySelector('p').style.opacity = 0;
 };

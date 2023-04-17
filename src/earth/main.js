@@ -1,15 +1,18 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-import earthPath from '/4k_earth_land_ocean_ice_cloud.png';
+import earthPath from '/textures/4k_earth_land_ocean_ice_cloud.png';
+import earthLandPath from '/textures/8k_earth_land_ocean_ice.png';
+import earthTopoPath from '/textures/8k_earth_topography.png';
+import starsPath from '/textures/8k_stars_milky_way.jpg';
 
 const textureLoader = new THREE.TextureLoader();
 const textures = {
   earth: textureLoader.load(earthPath),
-  earthLand: textureLoader.load('/8k_earth_land_ocean_ice.png'),
-  earthTopo: textureLoader.load('/8k_earth_topography.png'),
-  stars: textureLoader.load('/8k_stars_milky_way.jpg'),
-};
+  earthLand: textureLoader.load(earthLandPath),
+  earthTopo: textureLoader.load(earthTopoPath),
+  stars: textureLoader.load(starsPath),
+}
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 
 let scene, camera, controls, renderer;
@@ -47,11 +50,11 @@ const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
     sphereMat.opacity = 0.5;
   }
   return new THREE.Mesh(sphereGeo, sphereMat);
-};
+}
 
 const createPointLight = (c, i) => {
   return new THREE.PointLight(c, i);
-};
+}
 
 const earthTop = createSphere(5, 50, 50, textures.earth);
 const earthUnder = createSphere(
@@ -103,7 +106,7 @@ const loop = () => {
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(loop);
-};
+}
 loop();
 
 const handleResize = () => {
@@ -111,5 +114,5 @@ const handleResize = () => {
   renderer.setSize(innerWidth, innerHeight);
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
-};
+}
 window.addEventListener('resize', handleResize);
