@@ -37,6 +37,33 @@ controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
 
+const rotateBtn = document.querySelector('.rotate-btn');
+const initialText = rotateBtn.textContent;
+const clickedText = "Wyłącz obracanie";
+const OnClickRotate = () => {
+  rotateBtn.addEventListener(
+    'click',
+    () => {
+      controls.autoRotate = true;
+      rotateBtn.textContent = clickedText;
+      OnClickNoRotate();
+    },
+    { once: true }
+  );
+};
+const OnClickNoRotate = () => {
+  rotateBtn.addEventListener(
+    'click',
+    () => {
+      controls.autoRotate = false;
+      rotateBtn.textContent = initialText;
+      OnClickRotate();
+    },
+    { once: true }
+  );
+};
+OnClickRotate();
+
 const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
   const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
   const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
