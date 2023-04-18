@@ -12,7 +12,7 @@ const textures = {
   earthLand: textureLoader.load(earthLandPath),
   earthTopo: textureLoader.load(earthTopoPath),
   stars: textureLoader.load(starsPath),
-}
+};
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 
 let scene, camera, controls, renderer;
@@ -47,14 +47,14 @@ const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
   if (backSide) {
     sphereMat.side = THREE.BackSide;
     sphereMat.transparent = true;
-    sphereMat.opacity = 0.5;
+    sphereMat.opacity = 0.8;
   }
   return new THREE.Mesh(sphereGeo, sphereMat);
-}
+};
 
 const createPointLight = (c, i) => {
   return new THREE.PointLight(c, i);
-}
+};
 
 const earthTop = createSphere(5, 50, 50, textures.earth);
 const earthUnder = createSphere(
@@ -106,7 +106,7 @@ const loop = () => {
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(loop);
-}
+};
 loop();
 
 const handleResize = () => {
@@ -114,9 +114,8 @@ const handleResize = () => {
   renderer.setSize(innerWidth, innerHeight);
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
-}
+};
 window.addEventListener('resize', handleResize);
-
 
 document.body.onload = () => {
   document.querySelector('div').style.opacity = 0;
