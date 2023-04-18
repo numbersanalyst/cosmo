@@ -119,6 +119,7 @@ window.addEventListener('resize', handleResize);
 
 document.body.onload = () => {
   document.querySelector('div').style.opacity = 0;
+  document.querySelector('.date').textContent = new Date().toDateString();
 };
 
 setTimeout(() => {
