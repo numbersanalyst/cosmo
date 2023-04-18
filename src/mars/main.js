@@ -6,9 +6,9 @@ import starsPath from '/textures/8k_stars_milky_way.jpg';
 
 const textureLoader = new THREE.TextureLoader();
 const textures = {
-  mars: textureLoader.load(marsPath),
-  stars: textureLoader.load(starsPath),
-};
+    mars: textureLoader.load(marsPath),
+    stars: textureLoader.load(starsPath),
+}
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 
 let scene, camera, controls, renderer;
@@ -16,10 +16,10 @@ let scene, camera, controls, renderer;
 scene = new THREE.Scene();
 
 camera = new THREE.PerspectiveCamera(
-  20,
-  window.innerWidth / window.innerHeight,
-  1,
-  1000
+    20,
+    window.innerWidth / window.innerHeight,
+    1,
+    1000
 );
 camera.position.set(0, 0, 50);
 
@@ -34,23 +34,23 @@ controls.minDistance = 10;
 controls.maxDistance = 200;
 
 const createSphere = (r, wSeg, hSeg, mapUrl, bMap, backSide) => {
-  const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-  const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
-  if (bMap) {
-    sphereMat.bumpMap = mapUrl;
-    sphereMat.bumpScale = 0.1;
-  }
-  if (backSide) {
-    sphereMat.side = THREE.BackSide;
-    sphereMat.transparent = true;
-    sphereMat.opacity = 0.8;
-  }
-  return new THREE.Mesh(sphereGeo, sphereMat);
-};
+    const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
+    const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
+    if (bMap) {
+        sphereMat.bumpMap = mapUrl;
+        sphereMat.bumpScale = 0.1;
+    }
+    if (backSide) {
+        sphereMat.side = THREE.BackSide;
+        sphereMat.transparent = true;
+        sphereMat.opacity = 0.8;
+    }
+    return new THREE.Mesh(sphereGeo, sphereMat);
+}
 
 const createPointLight = (c, i) => {
-  return new THREE.PointLight(c, i);
-};
+    return new THREE.PointLight(c, i);
+}
 
 const mars = createSphere(5, 50, 50, textures.mars, true);
 const background = createSphere(100, 50, 50, textures.stars, false, true);
@@ -65,30 +65,30 @@ camera.add(light1, light2);
 scene.add(mars, background, camera);
 
 const loop = () => {
-  controls.update();
-  renderer.render(scene, camera);
-  requestAnimationFrame(loop);
-};
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+}
 loop();
 
 const handleResize = () => {
-  const { innerWidth, innerHeight } = window;
-  renderer.setSize(innerWidth, innerHeight);
-  camera.aspect = innerWidth / innerHeight;
-  camera.updateProjectionMatrix();
-};
+    const { innerWidth, innerHeight } = window;
+    renderer.setSize(innerWidth, innerHeight);
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+}
 window.addEventListener('resize', handleResize);
 
 document.body.onload = () => {
-  document.querySelector('div').style.opacity = 0;
-};
+    document.querySelector('div').style.opacity = 0;
+}
 
 setTimeout(() => {
-  document.querySelector('div').style.display = 'none';
+    document.querySelector('div').style.display = 'none';
 }, 10000);
 
 document.addEventListener('keydown', (event) => {
-  if (event.isComposing || event.keyCode === 27) {
-    history.back();
-  }
+    if (event.isComposing || event.keyCode === 27) {
+        history.back();
+    }
 });
