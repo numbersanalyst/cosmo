@@ -118,13 +118,8 @@ const handleResize = () => {
 window.addEventListener('resize', handleResize);
 
 document.body.onload = () => {
-  document.querySelector('div').style.opacity = 0;
   document.querySelector('.date').textContent = new Date().toDateString();
 };
-
-setTimeout(() => {
-  document.querySelector('div').style.display = 'none';
-}, 10000);
 
 document.addEventListener('keydown', (event) => {
   if (event.isComposing || event.keyCode === 27) {
