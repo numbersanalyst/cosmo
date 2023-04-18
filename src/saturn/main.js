@@ -51,7 +51,7 @@ const createRing = (mapUrl) => {
   const ringMat = new THREE.MeshStandardMaterial({
     map: mapUrl,
     side: THREE.DoubleSide,
-    trasparent: true,
+    transparent: true,
   });
   return new THREE.Mesh(ringGeo, ringMat);
 };
