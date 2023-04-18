@@ -18,6 +18,7 @@ export default defineConfig({
         venusAtmosphere: resolve(root, 'venus-atmosphere/index.html'),
         venusSurface: resolve(root, 'venus-surface/index.html'),
         earth: resolve(root, 'earth/index.html'),
+        moon: resolve(root, 'moon/index.html'),
         mars: resolve(root, 'mars/index.html'),
         jupiter: resolve(root, 'jupiter/index.html'),
         saturn: resolve(root, 'saturn/index.html'),
