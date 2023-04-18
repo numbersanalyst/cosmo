@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import saturnPath from '/textures/8k_saturn.jpg';
-import saturnRingPath from '/textures/8k_saturn_ring_alpha.png';
+import saturnRingPath from '/textures/4k_saturn_ring.png';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
 
 const textureLoader = new THREE.TextureLoader();
@@ -47,11 +47,12 @@ const createSphere = (r, wSeg, hSeg, mapUrl, backSide) => {
 };
 
 const createRing = (mapUrl) => {
-  const ringGeo = new THREE.RingGeometry(6, 10, 60, 60);
+  const ringGeo = new THREE.RingGeometry(6, 10, 60);
   const ringMat = new THREE.MeshStandardMaterial({
     map: mapUrl,
     side: THREE.DoubleSide,
     transparent: true,
+    depthWrite: false,
   });
   return new THREE.Mesh(ringGeo, ringMat);
 };
