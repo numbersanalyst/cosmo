@@ -1,12 +1,12 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-import wenusPath from '/textures/8k_mercury.jpg';
+import mercuryPath from '/textures/8k_mercury.jpg';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
 
 const textureLoader = new THREE.TextureLoader();
 const textures = {
-  wenus: textureLoader.load(wenusPath),
+  mercury: textureLoader.load(mercuryPath),
   stars: textureLoader.load(starsPath),
 };
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
@@ -52,7 +52,7 @@ const createPointLight = (c, i) => {
   return new THREE.PointLight(c, i);
 };
 
-const wenus = createSphere(5, 50, 50, textures.wenus, true);
+const mercury = createSphere(5, 50, 50, textures.mercury, true);
 const background = createSphere(100, 50, 50, textures.stars, false, true);
 const light1 = createPointLight(colorLight, 1);
 const light2 = createPointLight(colorLight, 0.1);
@@ -62,7 +62,7 @@ light1.position.set(-50, 50, 30);
 light2.position.set(0, 0, 30);
 
 camera.add(light1, light2);
-scene.add(wenus, background, camera);
+scene.add(mercury, background, camera);
 
 const loop = () => {
   controls.update();
