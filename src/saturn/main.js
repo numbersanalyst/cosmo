@@ -47,7 +47,7 @@ const createSphere = (r, wSeg, hSeg, mapUrl, backSide) => {
 };
 
 const createRing = (mapUrl) => {
-  const ringGeo = new THREE.RingGeometry(6, 8, 60, 60);
+  const ringGeo = new THREE.RingGeometry(6, 10, 60, 60);
   const ringMat = new THREE.MeshStandardMaterial({
     map: mapUrl,
     side: THREE.DoubleSide,
