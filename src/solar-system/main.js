@@ -9,7 +9,7 @@ import moonPath from '/textures/2k_moon.jpg';
 import marsPath from '/textures/2k_mars.jpg';
 import jupiterPath from '/textures/2k_jupiter.jpg';
 import saturnPath from '/textures/2k_saturn.jpg';
-import saturnRingPath from '/textures/2k_saturnRing.jpg';
+import saturnRingPath from '/textures/2k_saturn_ring.png';
 import uranusPath from '/textures/2k_uranus.jpg';
 import neptunePath from '/textures/2k_neptune.jpg';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
