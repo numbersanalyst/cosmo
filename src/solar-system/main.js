@@ -7,7 +7,6 @@ import venusPath from '/textures/2k_venus_atmosphere.jpg';
 import earthPath from '/textures/4k_earth_land_ocean_ice_cloud.png';
 import moonPath from '/textures/2k_moon.jpg';
 import marsPath from '/textures/2k_mars.jpg';
-import marsPath from '/textures/2k_mars.jpg';
 import jupiterPath from '/textures/2k_jupiter.jpg';
 import saturnPath from '/textures/2k_saturn.jpg';
 import saturnRingPath from '/textures/2k_saturnRing.jpg';
@@ -21,10 +20,10 @@ const textures = {
   mercury: textureLoader.load(mercuryPath),
   venus: textureLoader.load(venusPath),
   earth: textureLoader.load(earthPath),
-moon: textureLoader.load(moonPath),
-mars: textureLoader.load(marsPath),
-jupiter: textureLoader.load(jupiterPath),
-saturn: textureLoader.load(saturnPath),
+  moon: textureLoader.load(moonPath),
+  mars: textureLoader.load(marsPath),
+  jupiter: textureLoader.load(jupiterPath),
+  saturn: textureLoader.load(saturnPath),
   saturnRing: textureLoader.load(saturnRingPath),
   uranus: textureLoader.load(uranusPath),
   neptune: textureLoader.load(neptunePath),
