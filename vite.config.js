@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         select: resolve(root, 'select/index.html'),
+        solar: resolve(root, 'solar-system/index.html'),
         sun: resolve(root, 'sun/index.html'),
         mercury: resolve(root, 'mercury/index.html'),
         venus: resolve(root, 'venus/index.html'),
