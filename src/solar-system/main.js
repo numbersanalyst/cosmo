@@ -53,9 +53,35 @@ controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
 
+const createSphere = (r, wSeg, hSeg, mapUrl, bMap, backSide) => {
+  const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
+  const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
+  if (bMap) {
+    sphereMat.bumpMap = mapUrl;
+    sphereMat.bumpScale = 0.1;
+  }
+  if (backSide) {
+    sphereMat.side = THREE.BackSide;
+    sphereMat.transparent = true;
+    sphereMat.opacity = 0.8;
+  }
+  return new THREE.Mesh(sphereGeo, sphereMat);
+};
+
+const createRing = (rInner, rOuter, tSeg, mapUrl) => {
+  const ringGeo = new THREE.RingGeometry(rInner, rOuter, tSeg);
+  const ringMat = new THREE.MeshStandardMaterial({
+    map: mapUrl,
+    side: THREE.DoubleSide,
+    transparent: true,
+    depthWrite: false,
+  });
+  return new THREE.Mesh(ringGeo, ringMat);
+};
+
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
-const clickedText = "Wyłącz obracanie";
+const clickedText = 'Wyłącz obracanie';
 const OnClickRotate = () => {
   rotateBtn.addEventListener(
     'click',
