@@ -79,6 +79,13 @@ const createRing = (rInner, rOuter, tSeg, mapUrl) => {
   return new THREE.Mesh(ringGeo, ringMat);
 };
 
+const sun = createSphere(5, 50, 50, textures.sun, true);
+const mercury = createSphere(5, 50, 50, textures.mercury, true);
+const venus = createSphere(5, 50, 50, textures.venus);
+const earth = createSphere(5, 50, 50, textures.earth);
+const moon = createSphere(5, 50, 50, textures.moon, true);
+const mars = createSphere(5, 50, 50, textures.mars, true);
+
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
 const clickedText = 'Wyłącz obracanie';
