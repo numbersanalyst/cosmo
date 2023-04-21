@@ -46,8 +46,8 @@ const createSphere = (r, wSeg, hSeg, mapUrl, backSide) => {
   return new THREE.Mesh(sphereGeo, sphereMat);
 };
 
-const createRing = (mapUrl) => {
-  const ringGeo = new THREE.RingGeometry(6, 10, 60);
+const createRing = (rInner, rOuter, tSeg, mapUrl) => {
+  const ringGeo = new THREE.RingGeometry(rInner, rOuter, tSeg);
   const ringMat = new THREE.MeshStandardMaterial({
     map: mapUrl,
     side: THREE.DoubleSide,
@@ -62,7 +62,7 @@ const createPointLight = (c, i) => {
 };
 
 const saturn = createSphere(5, 50, 50, textures.saturn);
-const saturnRing = createRing(textures.saturnRing);
+const saturnRing = createRing(6, 10, 60, textures.saturnRing);
 const background = createSphere(100, 50, 50, textures.stars, true);
 const light1 = createPointLight(colorLight, 1);
 const light2 = createPointLight(colorLight, 0.1);
