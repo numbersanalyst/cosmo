@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '/common/createSphere.js';
+import createPointLight from '/common/createPointLight';
 
 import earthPath from '/textures/4k_earth_land_ocean_ice_cloud.png';
 import earthLandPath from '/textures/8k_earth_land_ocean_ice.png';
@@ -65,10 +66,6 @@ const OnClickNoRotate = () => {
   );
 };
 OnClickRotate();
-
-const createPointLight = (c, i) => {
-  return new THREE.PointLight(c, i);
-};
 
 const earthTop = createSphere(5, 50, 50, textures.earth);
 const earthUnder = createSphere(

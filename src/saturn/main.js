@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '/common/createSphere.js';
 import createRing from '/common/createRing.js';
+import createPointLight from '/common/createPointLight';
 
 import saturnPath from '/textures/8k_saturn.jpg';
 import saturnRingPath from '/textures/4k_saturn_ring.png';
@@ -37,10 +38,6 @@ controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
-
-const createPointLight = (c, i) => {
-  return new THREE.PointLight(c, i);
-};
 
 const saturn = createSphere(5, 50, 50, textures.saturn);
 const saturnRing = createRing(6, 10, 60, textures.saturnRing);

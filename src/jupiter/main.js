@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '/common/createSphere.js';
+import createPointLight from '/common/createPointLight';
 
 import jupiterPath from '/textures/8k_jupiter.jpg';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
@@ -34,10 +35,6 @@ controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
-
-const createPointLight = (c, i) => {
-  return new THREE.PointLight(c, i);
-};
 
 const jupiter = createSphere(5, 50, 50, textures.jupiter, textures.jupiter);
 const background = createSphere(100, 50, 50, textures.stars, false, true);

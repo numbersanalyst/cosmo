@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '/common/createSphere.js';
+import createPointLight from '/common/createPointLight';
 
 import venusAtmoPath from '/textures/4k_venus_atmosphere.jpg';
 import venusSurfPath from '/textures/8k_venus_surface.jpg';
@@ -63,10 +64,6 @@ const OnClickNoRotate = () => {
   );
 };
 OnClickRotate();
-
-const createPointLight = (c, i) => {
-  return new THREE.PointLight(c, i);
-};
 
 const venusAtmo = createSphere(5, 50, 50, textures.venusAtmo);
 const venusSurf = createSphere(5, 50, 50, textures.venusSurf, true);
