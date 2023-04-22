@@ -62,6 +62,11 @@ const venus = createSphere(5, 50, 50, textures.venus);
 const earth = createSphere(5, 50, 50, textures.earth);
 const moon = createSphere(5, 50, 50, textures.moon, textures.moon);
 const mars = createSphere(5, 50, 50, textures.mars, textures.mars);
+const jupiter = createSphere(5, 50, 50, textures.jupiter, textures.jupiter);
+const saturn = createSphere(5, 50, 50, textures.saturn);
+const saturnRing = createRing(6, 10, 60, textures.saturnRing);
+const uranus = createSphere(5, 50, 50, textures.uranus);
+const neptune = createSphere(5, 50, 50, textures.neptune);
 
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
