@@ -39,7 +39,7 @@ const createPointLight = (c, i) => {
   return new THREE.PointLight(c, i);
 };
 
-const moon = createSphere(5, 50, 50, textures.moon, true);
+const moon = createSphere(5, 50, 50, textures.moon, textures.moon);
 const background = createSphere(100, 50, 50, textures.stars, false, true);
 const light1 = createPointLight(colorLight, 1);
 const light2 = createPointLight(colorLight, 0.1);
