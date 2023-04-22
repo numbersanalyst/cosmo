@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+import createSphere from '/common/createSphere.js';
+
 import earthPath from '/textures/4k_earth_land_ocean_ice_cloud.png';
 import earthLandPath from '/textures/8k_earth_land_ocean_ice.png';
 import earthTopoPath from '/textures/8k_earth_topography.png';
@@ -63,21 +65,6 @@ const OnClickNoRotate = () => {
   );
 };
 OnClickRotate();
-
-const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
-  const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-  const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
-  if (bMapUrl) {
-    sphereMat.bumpMap = bMapUrl;
-    sphereMat.bumpScale = 0.1;
-  }
-  if (backSide) {
-    sphereMat.side = THREE.BackSide;
-    sphereMat.transparent = true;
-    sphereMat.opacity = 0.8;
-  }
-  return new THREE.Mesh(sphereGeo, sphereMat);
-};
 
 const createPointLight = (c, i) => {
   return new THREE.PointLight(c, i);

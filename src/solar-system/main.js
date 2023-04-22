@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+import createSphere from '/common/createSphere.js';
+import createRing from '/common/createRing.js';
+
 import sunPath from '/textures/2k_sun.jpg';
 import mercuryPath from '/textures/2k_mercury.jpg';
 import venusPath from '/textures/2k_venus_atmosphere.jpg';
@@ -52,32 +55,6 @@ controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
-
-const createSphere = (r, wSeg, hSeg, mapUrl, bMap, backSide) => {
-  const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-  const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
-  if (bMap) {
-    sphereMat.bumpMap = mapUrl;
-    sphereMat.bumpScale = 0.1;
-  }
-  if (backSide) {
-    sphereMat.side = THREE.BackSide;
-    sphereMat.transparent = true;
-    sphereMat.opacity = 0.8;
-  }
-  return new THREE.Mesh(sphereGeo, sphereMat);
-};
-
-const createRing = (rInner, rOuter, tSeg, mapUrl) => {
-  const ringGeo = new THREE.RingGeometry(rInner, rOuter, tSeg);
-  const ringMat = new THREE.MeshStandardMaterial({
-    map: mapUrl,
-    side: THREE.DoubleSide,
-    transparent: true,
-    depthWrite: false,
-  });
-  return new THREE.Mesh(ringGeo, ringMat);
-};
 
 const sun = createSphere(5, 50, 50, textures.sun, true);
 const mercury = createSphere(5, 50, 50, textures.mercury, true);

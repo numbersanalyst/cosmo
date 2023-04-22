@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+import createSphere from '/common/createSphere.js';
+
 import uranusPath from '/textures/2k_uranus.jpg';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
 
@@ -32,17 +34,6 @@ controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
-
-const createSphere = (r, wSeg, hSeg, mapUrl, backSide) => {
-  const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-  const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
-  if (backSide) {
-    sphereMat.side = THREE.BackSide;
-    sphereMat.transparent = true;
-    sphereMat.opacity = 0.8;
-  }
-  return new THREE.Mesh(sphereGeo, sphereMat);
-};
 
 const createPointLight = (c, i) => {
   return new THREE.PointLight(c, i);
