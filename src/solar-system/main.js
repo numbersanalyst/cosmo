@@ -56,12 +56,12 @@ controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
 
-const sun = createSphere(5, 50, 50, textures.sun, true);
-const mercury = createSphere(5, 50, 50, textures.mercury, true);
+const sun = createSphere(5, 50, 50, textures.sun, textures.sun);
+const mercury = createSphere(5, 50, 50, textures.mercury, textures.mercury);
 const venus = createSphere(5, 50, 50, textures.venus);
 const earth = createSphere(5, 50, 50, textures.earth);
-const moon = createSphere(5, 50, 50, textures.moon, true);
-const mars = createSphere(5, 50, 50, textures.mars, true);
+const moon = createSphere(5, 50, 50, textures.moon, textures.moon);
+const mars = createSphere(5, 50, 50, textures.mars, textures.mars);
 
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
