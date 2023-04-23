@@ -24,6 +24,7 @@ body {
     rgba(134, 93, 255, 1) 38%,
     rgba(227, 132, 255, 1) 96%
   );
+  margin: 0px;
 }
 .film {
   width: 100%;
