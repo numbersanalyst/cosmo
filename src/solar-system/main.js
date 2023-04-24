@@ -24,6 +24,7 @@ const textureLoader = new THREE.TextureLoader();
 const planets = {
   sun: {
     texture: textureLoader.load(sunPath),
+    bumpMap: true,
     size: 16,
     position: null,
     selfRotation: 0.004,
@@ -31,6 +32,7 @@ const planets = {
   },
   mercury: {
     texture: textureLoader.load(mercuryPath),
+    bumpMap: true,
     size: 3.2,
     position: 28,
     selfRotation: 0.004,
@@ -38,6 +40,7 @@ const planets = {
   },
   venus: {
     texture: textureLoader.load(venusPath),
+    bumpMap: false,
     size: 5.8,
     position: 44,
     selfRotation: 0.002,
@@ -45,6 +48,7 @@ const planets = {
   },
   earth: {
     texture: textureLoader.load(earthPath),
+    bumpMap: false,
     size: 6,
     position: 62,
     selfRotation: 0.02,
@@ -52,6 +56,7 @@ const planets = {
   },
   moon: {
     texture: textureLoader.load(moonPath),
+    bumpMap: true,
     size: 1.5,
     position: null,
     selfRotation: null,
@@ -59,6 +64,7 @@ const planets = {
   },
   mars: {
     texture: textureLoader.load(marsPath),
+    bumpMap: true,
     size: 4,
     position: 78,
     selfRotation: 0.018,
@@ -66,6 +72,7 @@ const planets = {
   },
   jupiter: {
     texture: textureLoader.load(jupiterPath),
+    bumpMap: true,
     size: 12,
     position: 100,
     selfRotation: 0.04,
@@ -73,16 +80,20 @@ const planets = {
   },
   saturn: {
     texture: textureLoader.load(saturnPath),
+    bumpMap: false,
     size: 10,
     position: 138,
     selfRotation: 0.038,
     sunRotation: 0.0009,
     ring: {
       texture: textureLoader.load(saturnRingPath),
+      innerRadius: 6,
+      outerRadius: 10,
     }
   },
   uranus: {
     texture: textureLoader.load(uranusPath),
+    bumpMap: false,
     size: 7,
     position: 176,
     selfRotation: 0.03,
@@ -90,6 +101,7 @@ const planets = {
   },
   neptune: {
     texture: textureLoader.load(neptunePath),
+    bumpMap: false,
     size: 7,
     position: 200,
     selfRotation: 0.032,
