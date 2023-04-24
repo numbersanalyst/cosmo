@@ -57,7 +57,6 @@ document.body.appendChild(renderer.domElement);
 
 controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
-controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
 
