@@ -84,6 +84,23 @@ scene.add(sunTest.obj, camera);
 
 sunTest.mesh.position.set(0, 0, -30);
 
+const loop = () => {
+  sunTest.obj.rotation.y += 0.01;
+  controls.update();
+  renderer.render(scene, camera);
+  requestAnimationFrame(loop);
+};
+loop();
+
+const handleResize = () => {
+  const { innerWidth, innerHeight } = window;
+  renderer.setSize(innerWidth, innerHeight);
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+};
+window.addEventListener('resize', handleResize);
+
+
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
 const clickedText = 'Wyłącz obracanie';
@@ -110,22 +127,6 @@ const OnClickNoRotate = () => {
   );
 };
 OnClickRotate();
-
-const loop = () => {
-  sunTest.obj.rotation.y += 0.01;
-  controls.update();
-  renderer.render(scene, camera);
-  requestAnimationFrame(loop);
-};
-loop();
-
-const handleResize = () => {
-  const { innerWidth, innerHeight } = window;
-  renderer.setSize(innerWidth, innerHeight);
-  camera.aspect = innerWidth / innerHeight;
-  camera.updateProjectionMatrix();
-};
-window.addEventListener('resize', handleResize);
 
 document.body.onload = () => {
   document.querySelector('.date').textContent = new Date().toDateString();
