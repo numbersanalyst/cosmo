@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
+const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl) => {
   const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
   const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
   if (bMapUrl) {
