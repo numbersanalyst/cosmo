@@ -3,6 +3,8 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '/common/createSphere.js';
 import createRing from '/common/createRing.js';
+import createSphereObj from '/common/createSphereObj.js';
+import createPointLight from '/common/createPointLight';
 
 import sunPath from '/textures/2k_sun.jpg';
 import mercuryPath from '/textures/2k_mercury.jpg';
@@ -68,6 +70,15 @@ const saturnRing = createRing(6, 10, 60, textures.saturnRing);
 const uranus = createSphere(5, 50, 50, textures.uranus);
 const neptune = createSphere(5, 50, 50, textures.neptune);
 
+const light = createPointLight(colorLight, 1);
+light.position.set(0, 0, 100);
+scene.add(light);
+
+const sunTest = createSphereObj(5, 50, 50, textures.sun, textures.sun);
+scene.add(sunTest.obj);
+
+sunTest.mesh.position.set(0, 0, -30);
+
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
 const clickedText = 'Wyłącz obracanie';
@@ -96,6 +107,7 @@ const OnClickNoRotate = () => {
 OnClickRotate();
 
 const loop = () => {
+  sunTest.obj.rotation.y += 0.01;
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(loop);
