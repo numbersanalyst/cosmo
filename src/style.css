@@ -104,3 +104,14 @@ header .sticky {
   padding: 5px 100px;
   background: #fff;
 }
+header{
+animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
