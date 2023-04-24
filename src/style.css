@@ -126,3 +126,14 @@ animation: fadeInMain 2s;
         opacity:1;
     }
 }
+#title_exp{
+animation: fadeInExp 2s;
+}
+@keyframes fadeInExp {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
