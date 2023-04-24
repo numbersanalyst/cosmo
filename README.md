@@ -1,6 +1,13 @@
 # Cosmo
 # [numbersanalyst.github.io/cosmo](https://numbersanalyst.github.io/cosmo)
 
+## How to run locally
+Open the project and type:
+```
+npm install
+npm run dev
+```
+
 ## Source
 * [three.js](https://threejs.org/)
 * scale of planets:
