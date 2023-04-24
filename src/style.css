@@ -115,7 +115,7 @@ animation: fadeIn 2s;
         opacity:1;
     }
 }
-#main h1, h2, p{
+#main h1, h2, p, hr{
 animation: fadeInMain 2s;
 }
 @keyframes fadeInMain {
