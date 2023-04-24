@@ -79,13 +79,9 @@ const light = createPointLight(colorLight, 1);
 light.position.set(0, 0, 100);
 // camera.add(light);
 
-const sunTest = createSphereObj(5, 50, 50, textures.sun, textures.sun);
-scene.add(sunTest.obj, camera);
-
-sunTest.mesh.position.set(0, 0, -30);
+scene.add(sun);
 
 const loop = () => {
-  sunTest.obj.rotation.y += 0.01;
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(loop);
