@@ -62,6 +62,32 @@ const positions = {
   neptune: 200,
 };
 
+const selfRotation = {
+  sun: 0.004,
+  mercury: 0.004,
+  venus: 0.002,
+  earth: 0.02,
+  moon: null,
+  mars: 0.018,
+  jupiter: 0.04,
+  saturn: 0.038,
+  uranus: 0.03,
+  neptune: 0.032,
+};
+
+const sunRotation = {
+  sun: null,
+  mercury: 0.04,
+  venus: 0.015,
+  earth: 0.01,
+  moon: null,
+  mars: 0.008,
+  jupiter: 0.002,
+  saturn: 0.0009,
+  uranus: 0.0004,
+  neptune: 0.0001,
+};
+
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 const colorDark = new THREE.Color('hsl(0,	0%,	20%)');
 
