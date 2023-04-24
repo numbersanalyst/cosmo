@@ -5,6 +5,7 @@ import createSphere from '/common/createSphere.js';
 import createRing from '/common/createRing.js';
 import createSphereObj from '/common/createSphereObj.js';
 import createPointLight from '/common/createPointLight';
+import createAmbientLight from '/common/createAmbientLight';
 
 import sunPath from '/textures/2k_sun.jpg';
 import mercuryPath from '/textures/2k_mercury.jpg';
@@ -34,7 +35,9 @@ const textures = {
   neptune: textureLoader.load(neptunePath),
   stars: textureLoader.load(starsPath),
 };
+
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
+const colorDark = new THREE.Color('hsl(0,	0%,	20%)');
 
 let scene, camera, controls, renderer;
 
@@ -70,9 +73,12 @@ const saturnRing = createRing(6, 10, 60, textures.saturnRing);
 const uranus = createSphere(5, 50, 50, textures.uranus);
 const neptune = createSphere(5, 50, 50, textures.neptune);
 
+const ambientLight = createAmbientLight(colorDark, 1);
+scene.add(ambientLight);
+
 const light = createPointLight(colorLight, 1);
 light.position.set(0, 0, 100);
-camera.add(light);
+// camera.add(light);
 
 const sunTest = createSphereObj(5, 50, 50, textures.sun, textures.sun);
 scene.add(sunTest.obj, camera);
