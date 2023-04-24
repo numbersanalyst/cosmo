@@ -7,7 +7,7 @@ import createRing from '/common/createRing.js';
 import sunPath from '/textures/2k_sun.jpg';
 import mercuryPath from '/textures/2k_mercury.jpg';
 import venusPath from '/textures/2k_venus_atmosphere.jpg';
-import earthPath from '/textures/2k_earth_land_ocean_ice_cloud.png';
+import earthPath from '/textures/2k_earth_land_ocean_ice_cloud.jpg';
 import moonPath from '/textures/2k_moon.jpg';
 import marsPath from '/textures/2k_mars.jpg';
 import jupiterPath from '/textures/2k_jupiter.jpg';
