@@ -72,10 +72,10 @@ const neptune = createSphere(5, 50, 50, textures.neptune);
 
 const light = createPointLight(colorLight, 1);
 light.position.set(0, 0, 100);
-scene.add(light);
+camera.add(light);
 
 const sunTest = createSphereObj(5, 50, 50, textures.sun, textures.sun);
-scene.add(sunTest.obj);
+scene.add(sunTest.obj, camera);
 
 sunTest.mesh.position.set(0, 0, -30);
 
