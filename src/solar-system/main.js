@@ -36,6 +36,19 @@ const textures = {
   stars: textureLoader.load(starsPath),
 };
 
+const sizes = {
+  sun: 16,
+  mercury: 3.2,
+  venus: 5.8,
+  earth: 6,
+  moon: 4,
+  mars: 4,
+  jupiter: 12,
+  saturn: 10,
+  uranus: 7,
+  neptune: 7,
+};
+
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 const colorDark = new THREE.Color('hsl(0,	0%,	20%)');
 
@@ -60,9 +73,9 @@ controls.enableDamping = true;
 controls.minDistance = 10;
 controls.maxDistance = 200;
 
-const sun = createSphere(5, 50, 50, textures.sun, textures.sun);
-const mercury = createSphere(5, 50, 50, textures.mercury, textures.mercury);
-const venus = createSphere(5, 50, 50, textures.venus);
+const sun = createSphere(sizes.sun, 50, 50, textures.sun, textures.sun);
+const mercury = createSphere(sizes.mercury, 50, 50, textures.mercury, textures.mercury);
+const venus = createSphere(sizes.venus, 50, 50, textures.venus);
 const earth = createSphere(5, 50, 50, textures.earth);
 const moon = createSphere(5, 50, 50, textures.moon, textures.moon);
 const mars = createSphere(5, 50, 50, textures.mars, textures.mars);
