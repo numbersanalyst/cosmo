@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-const createPointLight = (c, i) => {
-  return new THREE.PointLight(c, i);
+const createPointLight = (c, i, d) => {
+  return new THREE.PointLight(c, i, d);
 };
 
 export default createPointLight;

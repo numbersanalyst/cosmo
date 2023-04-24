@@ -75,11 +75,14 @@ const neptune = createSphere(5, 50, 50, textures.neptune);
 const ambientLight = createAmbientLight(colorDark, 1);
 scene.add(ambientLight);
 
-const light = createPointLight(colorLight, 1);
-light.position.set(0, 0, 100);
-// camera.add(light);
+const pointLight = createPointLight(colorLight, 1, 300);
+scene.add(pointLight);
 
 scene.add(sun);
+scene.add(mercury);
+scene.add(venus);
+mercury.position.set(0,0,-30);
+venus.position.set(0,0,-80);
 
 const loop = () => {
   controls.update();
