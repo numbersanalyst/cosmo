@@ -41,13 +41,26 @@ const sizes = {
   mercury: 3.2,
   venus: 5.8,
   earth: 6,
-  moon: 4,
+  moon: 1.5,
   mars: 4,
   jupiter: 12,
   saturn: 10,
   uranus: 7,
   neptune: 7,
 };
+
+const positions = {
+  earth: null,
+  mercury: 28,
+  venus: 44,
+  earth: 62,
+  moon: null,
+  mars: 78,
+  jupiter: 100,
+  saturn: 138,
+  uranus: 176,
+  neptune: 200,
+}
 
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 const colorDark = new THREE.Color('hsl(0,	0%,	20%)');
@@ -94,8 +107,8 @@ scene.add(pointLight);
 scene.add(sun);
 scene.add(mercury);
 scene.add(venus);
-mercury.position.set(0,0,-30);
-venus.position.set(0,0,-80);
+mercury.position.set(0, 0, positions.mercury);
+venus.position.set(0, 0, positions.venus);
 
 const loop = () => {
   controls.update();
