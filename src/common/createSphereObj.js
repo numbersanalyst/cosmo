@@ -7,11 +7,6 @@ const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
     sphereMat.bumpMap = bMapUrl;
     sphereMat.bumpScale = 0.1;
   }
-  if (backSide) {
-    sphereMat.side = THREE.BackSide;
-    sphereMat.transparent = true;
-    sphereMat.opacity = 0.8;
-  }
   const mesh = new THREE.Mesh(sphereGeo, sphereMat);
   const obj = new THREE.Object3D();
   obj.add(mesh);
