@@ -50,7 +50,7 @@ const sizes = {
 };
 
 const positions = {
-  earth: null,
+  sun: null,
   mercury: 28,
   venus: 44,
   earth: 62,
@@ -60,7 +60,7 @@ const positions = {
   saturn: 138,
   uranus: 176,
   neptune: 200,
-}
+};
 
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 const colorDark = new THREE.Color('hsl(0,	0%,	20%)');
