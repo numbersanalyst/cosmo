@@ -169,7 +169,7 @@ jupiter.mesh.position.x = planets.jupiter.position;
 saturn.mesh.position.x = planets.saturn.position;
 uranus.mesh.position.x = planets.uranus.position;
 neptune.mesh.position.x = planets.neptune.position;
-saturnRing.rotation.x = 1.5;
+saturnRing.rotateX(300);
 
 scene.add(
   sun,
