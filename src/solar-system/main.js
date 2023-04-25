@@ -126,10 +126,10 @@ controls.maxDistance = 1200;
 const ambientLight = createAmbientLight(colorDark, 0.8);
 scene.add(ambientLight);
 
-const pointLight = createPointLight(colorLight, 1, 2000);
+const pointLight = createPointLight(colorLight, 1, 300);
 scene.add(pointLight);
 
-const sun = createSphere(planets.sun.size, 30, 30, planets.sun.texture, planets.sun.texture);
+const sun = createSphere(planets.sun.size, 30, 30, planets.sun.texture, planets.sun.texture, false, 'basic');
 const mercury = createSphereObj(planets.mercury.size, 30, 30, planets.mercury.texture, planets.mercury.texture);
 const venus = createSphereObj(planets.venus.size, 30, 30, planets.venus.texture);
 const earth = createSphereObj(planets.earth.size, 30, 30, planets.earth.texture);
@@ -140,7 +140,7 @@ const saturn = createSphereObj(planets.saturn.size, 30, 30, planets.saturn.textu
 const saturnRing = createRing(planets.saturn.ring.innerRadius, planets.saturn.ring.outerRadius, 20, planets.saturn.ring.texture);
 const uranus = createSphereObj(planets.uranus.size, 30, 30, planets.uranus.texture);
 const neptune = createSphereObj(planets.neptune.size, 30, 30, planets.neptune.texture);
-const background = createSphere(900, 60, 60, stars, false, true);
+const background = createSphere(900, 30, 30, stars, false, true, 'basic');
 
 earth.mesh.add(moon.obj);
 saturn.mesh.add(saturnRing);

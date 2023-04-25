@@ -1,11 +1,16 @@
 import * as THREE from 'three';
 
-const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide) => {
+const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide, materialType) => {
   const sphereGeo = new THREE.SphereGeometry(r, wSeg, hSeg);
-  const sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
-  if (bMapUrl) {
-    sphereMat.bumpMap = bMapUrl;
-    sphereMat.bumpScale = 0.1;
+  let sphereMat;
+  if (materialType == 'basic') {
+    sphereMat = new THREE.MeshBasicMaterial({ map: mapUrl });
+  } else {
+    sphereMat = new THREE.MeshStandardMaterial({ map: mapUrl });
+    if (bMapUrl) {
+      sphereMat.bumpMap = bMapUrl;
+      sphereMat.bumpScale = 0.1;
+    }
   }
   if (backSide) {
     sphereMat.side = THREE.BackSide;
