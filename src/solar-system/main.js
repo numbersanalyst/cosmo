@@ -2,10 +2,10 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '../common/createSphere.js';
-import createRing from '/common/createRing.js';
-import createSphereObj from '/common/createSphereObj.js';
-import createPointLight from '/common/createPointLight';
-import createAmbientLight from '/common/createAmbientLight';
+import createRing from '../common/createRing.js';
+import createSphereObj from '../common/createSphereObj.js';
+import createPointLight from '../common/createPointLight';
+import createAmbientLight from '../common/createAmbientLight';
 
 import sunPath from '/textures/2k_sun.jpg';
 import mercuryPath from '/textures/2k_mercury.jpg';
@@ -142,6 +142,21 @@ const uranus = createSphereObj(planets.uranus.size, 30, 30, planets.uranus.textu
 const neptune = createSphereObj(planets.neptune.size, 30, 30, planets.neptune.texture);
 const background = createSphere(900, 30, 30, stars, false, true, 'basic');
 
+for (let planetName in planets) {
+  const planet = planets[planetName];
+  console.log(planetName);
+  if (planet.position != null) {
+    const ringGeo = new THREE.RingGeometry(planet.position, planet.position + 0.2, planet.position);
+    const ringMat = new THREE.MeshBasicMaterial({
+      side: THREE.DoubleSide,
+      transparent: true,
+      depthWrite: false,
+    });
+    ringGeo.rotateX(300);
+    scene.add(new THREE.Mesh(ringGeo, ringMat));
+  }
+}
+
 earth.mesh.add(moon.obj);
 saturn.mesh.add(saturnRing);
 
@@ -218,15 +233,15 @@ const OnClickRotate = () => {
     controls.autoRotate = true;
     rotateBtn.textContent = clickedText;
     OnClickNoRotate();
-  },{ once: true }
+  }, { once: true }
   );
 };
 const OnClickNoRotate = () => {
   rotateBtn.addEventListener('click', () => {
-      controls.autoRotate = false;
-      rotateBtn.textContent = initialText;
-      OnClickRotate();
-    },{ once: true }
+    controls.autoRotate = false;
+    rotateBtn.textContent = initialText;
+    OnClickRotate();
+  }, { once: true }
   );
 };
 
