@@ -69,13 +69,10 @@ const handleResize = () => {
 };
 window.addEventListener('resize', handleResize);
 
-document.body.onload = () => {
-  document.querySelector('div').style.opacity = 0;
-};
 
-setTimeout(() => {
-  document.querySelector('div').style.display = 'none';
-}, 10000);
+document.body.onload = () => {
+  document.querySelector('.date').textContent = new Date().toDateString();
+};
 
 document.addEventListener('keydown', (event) => {
   if (event.isComposing || event.keyCode === 27) {

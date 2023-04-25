@@ -223,6 +223,7 @@ const OnClickNoRotate = () => {
 };
 OnClickRotate();
 
+
 document.body.onload = () => {
   document.querySelector('.date').textContent = new Date().toDateString();
 };
