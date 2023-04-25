@@ -126,7 +126,7 @@ controls.maxDistance = 1200;
 const ambientLight = createAmbientLight(colorDark, 0.8);
 scene.add(ambientLight);
 
-const pointLight = createPointLight(colorLight, 1, 300);
+const pointLight = createPointLight(colorLight, 1, 400);
 scene.add(pointLight);
 
 const sun = createSphere(planets.sun.size, 30, 30, planets.sun.texture, planets.sun.texture, false, 'basic');
