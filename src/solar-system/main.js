@@ -170,27 +170,29 @@ scene.add(
   background
 );
 
-const loop = () => {
-  mercury.obj.rotateY(planets.mercury.sunRotation);
-  venus.obj.rotateY(planets.venus.sunRotation);
-  earth.obj.rotateY(planets.earth.sunRotation);
-  moon.obj.rotateY(planets.moon.sunRotation);
-  mars.obj.rotateY(planets.mars.sunRotation);
-  jupiter.obj.rotateY(planets.jupiter.sunRotation);
-  saturn.obj.rotateY(planets.saturn.sunRotation);
-  uranus.obj.rotateY(planets.uranus.sunRotation);
-  neptune.obj.rotateY(planets.neptune.sunRotation);
+let speed = 1;
 
-  sun.rotateY(planets.sun.selfRotation);
-  mercury.mesh.rotateY(planets.mercury.selfRotation);
-  venus.mesh.rotateY(planets.venus.selfRotation);
-  earth.mesh.rotateY(planets.earth.selfRotation);
-  moon.mesh.rotateY(planets.moon.selfRotation);
-  mars.mesh.rotateY(planets.mars.selfRotation);
-  jupiter.mesh.rotateY(planets.jupiter.selfRotation);
-  saturn.mesh.rotateY(planets.saturn.selfRotation);
-  uranus.mesh.rotateY(planets.uranus.selfRotation);
-  neptune.mesh.rotateY(planets.neptune.selfRotation);
+const loop = () => {
+  mercury.obj.rotateY(planets.mercury.sunRotation * speed);
+  venus.obj.rotateY(planets.venus.sunRotation * speed);
+  earth.obj.rotateY(planets.earth.sunRotation * speed);
+  moon.obj.rotateY(planets.moon.sunRotation * speed);
+  mars.obj.rotateY(planets.mars.sunRotation * speed);
+  jupiter.obj.rotateY(planets.jupiter.sunRotation * speed);
+  saturn.obj.rotateY(planets.saturn.sunRotation * speed);
+  uranus.obj.rotateY(planets.uranus.sunRotation * speed);
+  neptune.obj.rotateY(planets.neptune.sunRotation * speed);
+
+  sun.rotateY(planets.sun.selfRotation * speed);
+  mercury.mesh.rotateY(planets.mercury.selfRotation * speed);
+  venus.mesh.rotateY(planets.venus.selfRotation * speed);
+  earth.mesh.rotateY(planets.earth.selfRotation * speed);
+  moon.mesh.rotateY(planets.moon.selfRotation * speed);
+  mars.mesh.rotateY(planets.mars.selfRotation * speed);
+  jupiter.mesh.rotateY(planets.jupiter.selfRotation * speed);
+  saturn.mesh.rotateY(planets.saturn.selfRotation * speed);
+  uranus.mesh.rotateY(planets.uranus.selfRotation * speed);
+  neptune.mesh.rotateY(planets.neptune.selfRotation * speed);
 
   controls.update();
   renderer.render(scene, camera);
@@ -210,29 +212,33 @@ window.addEventListener('resize', handleResize);
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
 const clickedText = 'Wyłącz obracanie';
+
 const OnClickRotate = () => {
-  rotateBtn.addEventListener(
-    'click',
-    () => {
-      controls.autoRotate = true;
-      rotateBtn.textContent = clickedText;
-      OnClickNoRotate();
-    },
-    { once: true }
+  rotateBtn.addEventListener('click', () => {
+    controls.autoRotate = true;
+    rotateBtn.textContent = clickedText;
+    OnClickNoRotate();
+  },{ once: true }
   );
 };
 const OnClickNoRotate = () => {
-  rotateBtn.addEventListener(
-    'click',
-    () => {
+  rotateBtn.addEventListener('click', () => {
       controls.autoRotate = false;
       rotateBtn.textContent = initialText;
       OnClickRotate();
-    },
-    { once: true }
+    },{ once: true }
   );
 };
+
 OnClickRotate();
+
+const speedInput = document.querySelector('.speed-input');
+const getAnimationSpeed = () => {
+  speedInput.addEventListener('change', () => {
+    speed = speedInput.value;
+  },
+  );
+}; getAnimationSpeed();
 
 document.body.onload = () => {
   document.querySelector('.date').textContent = new Date().toDateString();
