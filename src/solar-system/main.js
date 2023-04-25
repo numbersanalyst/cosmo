@@ -82,7 +82,7 @@ const planets = {
       texture: textureLoader.load(saturnRingPath),
       innerRadius: 12,
       outerRadius: 22,
-    }
+    },
   },
   uranus: {
     texture: textureLoader.load(uranusPath),
@@ -99,7 +99,6 @@ const planets = {
     sunRotation: 0.0001,
   },
 };
-
 
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 const colorDark = new THREE.Color('hsl(0,	0%,	20%)');
@@ -127,7 +126,7 @@ controls.maxDistance = 1200;
 const ambientLight = createAmbientLight(colorDark, 0.8);
 scene.add(ambientLight);
 
-const pointLight = createPointLight(colorLight, 1, 500);
+const pointLight = createPointLight(colorLight, 1, 2000);
 scene.add(pointLight);
 
 const sun = createSphere(planets.sun.size, 30, 30, planets.sun.texture, planets.sun.texture);
@@ -157,7 +156,19 @@ uranus.mesh.position.x = planets.uranus.position;
 neptune.mesh.position.x = planets.neptune.position;
 saturnRing.rotation.x = 1.5;
 
-scene.add(sun,mercury.obj, venus.obj,earth.obj, saturn.obj, mars.obj, jupiter.obj, saturn.obj, uranus.obj, neptune.obj, background);
+scene.add(
+  sun,
+  mercury.obj,
+  venus.obj,
+  earth.obj,
+  saturn.obj,
+  mars.obj,
+  jupiter.obj,
+  saturn.obj,
+  uranus.obj,
+  neptune.obj,
+  background
+);
 
 const loop = () => {
   mercury.obj.rotateY(planets.mercury.sunRotation);
@@ -222,7 +233,6 @@ const OnClickNoRotate = () => {
   );
 };
 OnClickRotate();
-
 
 document.body.onload = () => {
   document.querySelector('.date').textContent = new Date().toDateString();
