@@ -63,10 +63,32 @@ const handleResize = () => {
 };
 window.addEventListener('resize', handleResize);
 
-document.body.onload = () => {
-  document.querySelector('div').style.opacity = 0;
+const rotateBtn = document.querySelector('.rotate-btn');
+const initialText = rotateBtn.textContent;
+const clickedText = "Wyłącz obracanie";
+const OnClickRotate = () => {
+  rotateBtn.addEventListener(
+    'click',
+    () => {
+      controls.autoRotate = true;
+      rotateBtn.textContent = clickedText;
+      OnClickNoRotate();
+    },
+    { once: true }
+  );
 };
-
+const OnClickNoRotate = () => {
+  rotateBtn.addEventListener(
+    'click',
+    () => {
+      controls.autoRotate = false;
+      rotateBtn.textContent = initialText;
+      OnClickRotate();
+    },
+    { once: true }
+  );
+};
+OnClickRotate();
 
 document.body.onload = () => {
   document.querySelector('.date').textContent = new Date().toDateString();
