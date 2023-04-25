@@ -137,3 +137,14 @@ animation: fadeInExp 2s;
         opacity:1;
     }
 }
+  hr{
+    animation:sizeChange 3s;
+  }
+  @keyframes sizeChange{
+    from{
+      width:0%;
+    }
+    to{
+      width:25%;
+    }
+  }
