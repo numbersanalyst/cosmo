@@ -6,6 +6,8 @@ import createPointLight from '/common/createPointLight';
 
 import sunPath from '/textures/8k_sun.jpg';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
+import vertexShader from '/shaders/vertex.glsl';
+console.log(vertexShader);
 
 const textureLoader = new THREE.TextureLoader();
 const textures = {
@@ -36,7 +38,15 @@ controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
 const sun = createSphere(5, 50, 50, textures.sun, textures.sun, false, 'basic');
-const background = createSphere(100, 50, 50, textures.stars, false, true, 'basic');
+const background = createSphere(
+  100,
+  50,
+  50,
+  textures.stars,
+  false,
+  true,
+  'basic'
+);
 const light1 = createPointLight(colorLight, 1);
 const light2 = createPointLight(colorLight, 0.1);
 
@@ -62,10 +72,9 @@ const handleResize = () => {
 };
 window.addEventListener('resize', handleResize);
 
-
 const rotateBtn = document.querySelector('.rotate-btn');
 const initialText = rotateBtn.textContent;
-const clickedText = "Wyłącz obracanie";
+const clickedText = 'Wyłącz obracanie';
 const OnClickRotate = () => {
   rotateBtn.addEventListener(
     'click',
