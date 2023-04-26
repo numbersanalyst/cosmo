@@ -10,6 +10,8 @@ npm run dev
 
 ## Source
 * [three.js](https://threejs.org/)
+* shaders:
+  * [Chris Courses video](https://youtu.be/vM8M4QloVL0)
 * scale of planets:
   * [WaelYasmina/solarsystem](https://github.com/WaelYasmina/solarsystem)
 * textures:
