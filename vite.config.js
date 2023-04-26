@@ -1,9 +1,11 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import vitePluginString from 'vite-plugin-string';
 
 const root = resolve(__dirname, 'src');
 
 export default defineConfig({
+  plugins: [vitePluginString()],
   root,
   base: '',
   build: {
