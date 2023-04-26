@@ -75,15 +75,9 @@ const background = createSphere(
   true,
   'basic'
 );
-const light1 = createPointLight(colorLight, 1);
-const light2 = createPointLight(colorLight, 0.1);
 
 background.rotation.x = 0.5;
-light1.position.set(-50, 50, 30);
-light2.position.set(0, 0, 30);
-
-camera.add(light1, light2);
-scene.add(sun, sunRays, background, camera);
+scene.add(sun, sunRays, background);
 
 const loop = () => {
   controls.update();
