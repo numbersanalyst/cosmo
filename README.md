@@ -16,5 +16,6 @@ npm run dev
   * [WaelYasmina/solarsystem](https://github.com/WaelYasmina/solarsystem)
 * textures:
   * [solarsystemscope](https://www.solarsystemscope.com/textures/)
-  * [visible earth](https://visibleearth.nasa.gov/)
+  * [visibleearth.nasa.gov](https://visibleearth.nasa.gov/)
   * [devianart](https://www.deviantart.com/niko22966/art/Rings-of-Saturn-419585311)
+  * [solarsystem.nasa.gov](https://solarsystem.nasa.gov/resources/531/enhanced-color-mercury-map/)
