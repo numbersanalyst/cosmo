@@ -2,6 +2,8 @@
 // https://github.com/helloroman
 
 import * as THREE from 'three';
+import vertexShader from '/shaders/vertex.glsl';
+import fragmentShader from '/shaders/fragment.glsl';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(24, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -14,9 +16,9 @@ const colorBlue = new THREE.Color('hsl(250, 100%, 50%)');
 const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 
 const cubeGeometry = new THREE.BoxGeometry(1, 1.5, 0.9);
-const cubeMaterial = new THREE.MeshPhongMaterial({
-    color: colorBlue,
-    shininess: 100
+const cubeMaterial = new THREE.ShaderMaterial({
+  vertexShader: vertexShader,
+  fragmentShader: fragmentShader,
 });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
 const light = new THREE.PointLight(colorLight, 2);

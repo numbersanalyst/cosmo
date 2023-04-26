@@ -1,3 +1,3 @@
 void main() {
-  gl_position = vec4(1,0,0,1);
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position.x, position.y, position.z, 1.0);
 }
