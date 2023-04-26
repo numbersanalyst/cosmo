@@ -6,6 +6,10 @@ import createRing from '../common/createRing.js';
 import createSphereObj from '../common/createSphereObj.js';
 import createPointLight from '../common/createPointLight';
 import createAmbientLight from '../common/createAmbientLight';
+import vertexShader from '/shaders/vertex.glsl';
+import fragmentShader from '/shaders/fragment.glsl';
+import atmosphereVertexShader from '/shaders/atmosphereVertex.glsl';
+import atmosphereFragmentShader from '/shaders/atmosphereFragment.glsl';
 
 import sunPath from '/textures/2k_sun.jpg';
 import mercuryPath from '/textures/2k_mercury.jpg';
@@ -129,7 +133,32 @@ scene.add(ambientLight);
 const pointLight = createPointLight(colorLight, 1, 400);
 scene.add(pointLight);
 
-const sun = createSphere(planets.sun.size, 30, 30, planets.sun.texture, planets.sun.texture, false, 'basic');
+// const sun = createSphere(planets.sun.size, 30, 30, planets.sun.texture, planets.sun.texture, false, 'basic');
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(planets.sun.size, 30, 30),
+  new THREE.ShaderMaterial({
+    vertexShader,
+    fragmentShader,
+    uniforms: {
+      globeTexture: {
+        value: planets.sun.texture,
+      },
+    },
+  })
+);
+
+const sunRays = new THREE.Mesh(
+  new THREE.SphereGeometry(planets.sun.size, 30, 30),
+  new THREE.ShaderMaterial({
+    vertexShader: atmosphereVertexShader,
+    fragmentShader: atmosphereFragmentShader,
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide,
+    transparent: true,
+  })
+);
+sunRays.scale.set(1.4, 1.4, 1.4);
+
 const mercury = createSphereObj(planets.mercury.size, 30, 30, planets.mercury.texture, planets.mercury.texture);
 const venus = createSphereObj(planets.venus.size, 30, 30, planets.venus.texture);
 const earth = createSphereObj(planets.earth.size, 30, 30, planets.earth.texture);
@@ -149,8 +178,6 @@ for (let planetName in planets) {
     const ringGeo = new THREE.RingGeometry(planet.position, planet.position + 0.2, planet.position);
     const ringMat = new THREE.MeshBasicMaterial({
       side: THREE.DoubleSide,
-      transparent: true,
-      depthWrite: false,
     });
     ringGeo.rotateX(300);
     scene.add(new THREE.Mesh(ringGeo, ringMat));
@@ -173,6 +200,7 @@ saturnRing.rotateX(300);
 
 scene.add(
   sun,
+  sunRays,
   mercury.obj,
   venus.obj,
   earth.obj,

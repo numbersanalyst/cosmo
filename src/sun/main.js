@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '/common/createSphere.js';
-import createPointLight from '/common/createPointLight';
 import vertexShader from '/shaders/vertex.glsl';
 import fragmentShader from '/shaders/fragment.glsl';
 import atmosphereVertexShader from '/shaders/atmosphereVertex.glsl';
