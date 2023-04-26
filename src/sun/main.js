@@ -3,11 +3,12 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '/common/createSphere.js';
 import createPointLight from '/common/createPointLight';
-
+import vertexShader from '/shaders/vertex.glsl';
+import fragmentShader from '/shaders/fragment.glsl';
+import atmosphereVertexShader from '/shaders/atmosphereVertex.glsl';
+import atmosphereFragmentShader from '/shaders/atmosphereFragment.glsl';
 import sunPath from '/textures/8k_sun.jpg';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
-import vertexShader from '/shaders/vertex.glsl';
-console.log(vertexShader);
 
 const textureLoader = new THREE.TextureLoader();
 const textures = {
@@ -37,7 +38,34 @@ controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
-const sun = createSphere(5, 50, 50, textures.sun, textures.sun, false, 'basic');
+// const sun = createSphere(5, 50, 50, textures.sun, textures.sun, false, "basic");
+
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(5, 50, 50),
+  new THREE.ShaderMaterial({
+    vertexShader,
+    fragmentShader,
+    uniforms: {
+      globeTexture: {
+        value: textures.sun,
+      },
+    },
+  })
+);
+
+const sunRays = new THREE.Mesh(
+  new THREE.SphereGeometry(5, 50, 50),
+  new THREE.ShaderMaterial({
+    vertexShader: atmosphereVertexShader,
+    fragmentShader: atmosphereFragmentShader,
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide,
+    transparent: true,
+  })
+);
+
+sunRays.scale.set(1.4, 1.4, 1.4);
+
 const background = createSphere(
   100,
   50,
@@ -55,7 +83,7 @@ light1.position.set(-50, 50, 30);
 light2.position.set(0, 0, 30);
 
 camera.add(light1, light2);
-scene.add(sun, background, camera);
+scene.add(sun, sunRays, background, camera);
 
 const loop = () => {
   controls.update();

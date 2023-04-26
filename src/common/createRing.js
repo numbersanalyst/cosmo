@@ -6,7 +6,6 @@ const createRing = (rInner, rOuter, tSeg, mapUrl) => {
     map: mapUrl,
     side: THREE.DoubleSide,
     transparent: true,
-    depthWrite: false,
   });
   return new THREE.Mesh(ringGeo, ringMat);
 };

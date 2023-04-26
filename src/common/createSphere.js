@@ -14,7 +14,6 @@ const createSphere = (r, wSeg, hSeg, mapUrl, bMapUrl, backSide, materialType) =>
   }
   if (backSide) {
     sphereMat.side = THREE.BackSide;
-    sphereMat.transparent = true;
     sphereMat.opacity = 0.8;
   }
   return new THREE.Mesh(sphereGeo, sphereMat);
