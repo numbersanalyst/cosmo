@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import createSphere from '/common/createSphere.js';
 import createPointLight from '/common/createPointLight';
 
-import mercuryPath from '/textures/8k_mercury.jpg';
+import mercuryPath from '/textures/4k_mercury.jpg';
 import starsPath from '/textures/8k_stars_milky_way.jpg';
 
 const textureLoader = new THREE.TextureLoader();
