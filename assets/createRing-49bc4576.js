@@ -1,0 +1,1 @@
+import{R as o,M,D as r,e as c,a as d}from"./three.module-0fa09e44.js";const w=(s,t,n,e)=>{const i=new o(s,t,n).rotateX(300);if(e)var a=new M({map:e,side:r,transparent:!0});else var a=new c({side:r});return new d(i,a)};export{w as c};
