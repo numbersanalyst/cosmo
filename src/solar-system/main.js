@@ -3,9 +3,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 import createSphere from '../common/createSphere.js';
 import createRing from '../common/createRing.js';
-import createSphereObj from '../common/createSphereObj.js';
 import createPointLight from '../common/createPointLight';
 import createAmbientLight from '../common/createAmbientLight';
+import createPlanet from '../common/createPlanet.js';
 import vertexShader from '/shaders/vertex.glsl';
 import fragmentShader from '/shaders/fragment.glsl';
 import atmosphereVertexShader from '/shaders/atmosphereVertex.glsl';
@@ -32,7 +32,6 @@ const planets = {
     size: 16,
     position: null,
     selfRotation: 0.004,
-    sunRotation: null,
   },
   mercury: {
     texture: textureLoader.load(mercuryPath),
@@ -40,6 +39,7 @@ const planets = {
     position: 28,
     selfRotation: 0.004,
     sunRotation: 0.04,
+    bumpMap: true,
   },
   venus: {
     texture: textureLoader.load(venusPath),
@@ -58,9 +58,10 @@ const planets = {
   moon: {
     texture: textureLoader.load(moonPath),
     size: 1.5,
-    position: null,
+    position: 10,
     selfRotation: 0.03,
     sunRotation: 0.03,
+    bumpMap: true,
   },
   mars: {
     texture: textureLoader.load(marsPath),
@@ -68,6 +69,7 @@ const planets = {
     position: 78,
     selfRotation: 0.018,
     sunRotation: 0.008,
+    bumpMap: true,
   },
   jupiter: {
     texture: textureLoader.load(jupiterPath),
@@ -75,6 +77,7 @@ const planets = {
     position: 100,
     selfRotation: 0.04,
     sunRotation: 0.002,
+    bumpMap: true,
   },
   saturn: {
     texture: textureLoader.load(saturnPath),
@@ -133,7 +136,6 @@ scene.add(ambientLight);
 const pointLight = createPointLight(colorLight, 1, 400);
 scene.add(pointLight);
 
-// const sun = createSphere(planets.sun.size, 30, 30, planets.sun.texture, planets.sun.texture, false, 'basic');
 const sun = new THREE.Mesh(
   new THREE.SphereGeometry(planets.sun.size, 30, 30),
   new THREE.ShaderMaterial({
@@ -159,59 +161,25 @@ const sunRays = new THREE.Mesh(
 );
 sunRays.scale.set(1.4, 1.4, 1.4);
 
-const mercury = createSphereObj(planets.mercury.size, 30, 30, planets.mercury.texture, planets.mercury.texture);
-const venus = createSphereObj(planets.venus.size, 30, 30, planets.venus.texture);
-const earth = createSphereObj(planets.earth.size, 30, 30, planets.earth.texture);
-const moon = createSphereObj(planets.moon.size, 30, 30, planets.moon.texture, planets.moon.texture);
-const mars = createSphereObj(planets.mars.size, 30, 30, planets.mars.texture, planets.mars.texture);
-const jupiter = createSphereObj(planets.jupiter.size, 30, 30, planets.jupiter.texture, planets.jupiter.texture);
-const saturn = createSphereObj(planets.saturn.size, 30, 30, planets.saturn.texture);
-const saturnRing = createRing(planets.saturn.ring.innerRadius, planets.saturn.ring.outerRadius, 20, planets.saturn.ring.texture);
-const uranus = createSphereObj(planets.uranus.size, 30, 30, planets.uranus.texture);
-const neptune = createSphereObj(planets.neptune.size, 30, 30, planets.neptune.texture);
 const background = createSphere(900, 30, 30, stars, false, true, 'basic');
+scene.add(sun, sunRays, background);
+
+const mercury = createPlanet(scene, planets.mercury);
+const venus = createPlanet(scene, planets.venus);
+const earth = createPlanet(scene, planets.earth);
+const moon = createPlanet(earth.mesh, planets.moon);
+const mars = createPlanet(scene, planets.mars);
+const jupiter = createPlanet(scene, planets.jupiter);
+const saturn = createPlanet(scene, planets.saturn);
+const uranus = createPlanet(scene, planets.uranus);
+const neptune = createPlanet(scene, planets.neptune);
 
 for (let planetName in planets) {
   const planet = planets[planetName];
-  console.log(planetName);
   if (planet.position != null) {
-    const ringGeo = new THREE.RingGeometry(planet.position, planet.position + 0.2, planet.position);
-    const ringMat = new THREE.MeshBasicMaterial({
-      side: THREE.DoubleSide,
-    });
-    ringGeo.rotateX(300);
-    scene.add(new THREE.Mesh(ringGeo, ringMat));
+    scene.add(createRing(planet.position, planet.position + 0.2, 80));
   }
 }
-
-earth.mesh.add(moon.obj);
-saturn.mesh.add(saturnRing);
-
-mercury.mesh.position.x = planets.mercury.position;
-venus.mesh.position.x = planets.venus.position;
-earth.mesh.position.x = planets.earth.position;
-moon.mesh.position.z = 10;
-mars.mesh.position.x = planets.mars.position;
-jupiter.mesh.position.x = planets.jupiter.position;
-saturn.mesh.position.x = planets.saturn.position;
-uranus.mesh.position.x = planets.uranus.position;
-neptune.mesh.position.x = planets.neptune.position;
-saturnRing.rotateX(300);
-
-scene.add(
-  sun,
-  sunRays,
-  mercury.obj,
-  venus.obj,
-  earth.obj,
-  saturn.obj,
-  mars.obj,
-  jupiter.obj,
-  saturn.obj,
-  uranus.obj,
-  neptune.obj,
-  background
-);
 
 let speed = 1;
 

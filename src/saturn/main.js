@@ -45,7 +45,6 @@ const background = createSphere(100, 50, 50, textures.stars, false, true, 'basic
 const light1 = createPointLight(colorLight, 1);
 const light2 = createPointLight(colorLight, 0.1);
 
-saturnRing.rotateX(300);
 background.rotation.x = 0.5;
 light1.position.set(-50, 50, 30);
 light2.position.set(0, 0, 30);

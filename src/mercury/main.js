@@ -1,18 +1,18 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-import createSphere from '/common/createSphere.js';
-import createPointLight from '/common/createPointLight';
+import createSphere from "/common/createSphere.js";
+import createPointLight from "/common/createPointLight";
 
-import mercuryPath from '/textures/4k_mercury.jpg';
-import starsPath from '/textures/8k_stars_milky_way.jpg';
+import mercuryPath from "/textures/4k_mercury.jpg";
+import starsPath from "/textures/8k_stars_milky_way.jpg";
 
 const textureLoader = new THREE.TextureLoader();
 const textures = {
   mercury: textureLoader.load(mercuryPath),
   stars: textureLoader.load(starsPath),
 };
-const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
+const colorLight = new THREE.Color("hsl(255, 100%, 100%)");
 
 let scene, camera, controls, renderer;
 
@@ -37,7 +37,15 @@ controls.minDistance = 10;
 controls.maxDistance = 200;
 
 const mercury = createSphere(5, 50, 50, textures.mercury, textures.mercury);
-const background = createSphere(100, 50, 50, textures.stars, false, true, 'basic');
+const background = createSphere(
+  100,
+  50,
+  50,
+  textures.stars,
+  false,
+  true,
+  "basic"
+);
 const light1 = createPointLight(colorLight, 1);
 const light2 = createPointLight(colorLight, 0.1);
 
@@ -61,15 +69,14 @@ const handleResize = () => {
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
 };
-window.addEventListener('resize', handleResize);
+window.addEventListener("resize", handleResize);
 
-
-const rotateBtn = document.querySelector('.rotate-btn');
+const rotateBtn = document.querySelector(".rotate-btn");
 const initialText = rotateBtn.textContent;
 const clickedText = "Wyłącz obracanie";
 const OnClickRotate = () => {
   rotateBtn.addEventListener(
-    'click',
+    "click",
     () => {
       controls.autoRotate = true;
       rotateBtn.textContent = clickedText;
@@ -80,7 +87,7 @@ const OnClickRotate = () => {
 };
 const OnClickNoRotate = () => {
   rotateBtn.addEventListener(
-    'click',
+    "click",
     () => {
       controls.autoRotate = false;
       rotateBtn.textContent = initialText;
@@ -92,10 +99,10 @@ const OnClickNoRotate = () => {
 OnClickRotate();
 
 document.body.onload = () => {
-  document.querySelector('.date').textContent = new Date().toDateString();
+  document.querySelector(".date").textContent = new Date().toDateString();
 };
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener("keydown", (event) => {
   if (event.isComposing || event.keyCode === 27) {
     history.back();
   }

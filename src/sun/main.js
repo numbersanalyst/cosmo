@@ -37,7 +37,6 @@ controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 10;
 controls.maxDistance = 200;
-// const sun = createSphere(5, 50, 50, textures.sun, textures.sun, false, "basic");
 
 const sun = new THREE.Mesh(
   new THREE.SphereGeometry(5, 50, 50),
