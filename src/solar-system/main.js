@@ -5,7 +5,6 @@ import createSphere from '../common/createSphere.js';
 import createRing from '../common/createRing.js';
 import createPointLight from '../common/createPointLight';
 import createAmbientLight from '../common/createAmbientLight';
-import createPlanet from '../common/createPlanet.js';
 import vertexShader from '/shaders/vertex.glsl';
 import fragmentShader from '/shaders/fragment.glsl';
 import atmosphereVertexShader from '/shaders/atmosphereVertex.glsl';
@@ -23,6 +22,25 @@ import saturnRingPath from '/textures/2k_saturn_ring.png';
 import uranusPath from '/textures/2k_uranus.jpg';
 import neptunePath from '/textures/2k_neptune.jpg';
 import starsPath from '/textures/8k_stars.jpg';
+
+const createPlanet = (info, alternativeToScene) => {
+  const sphereGeo = new THREE.SphereGeometry(info.size, 30, 30);
+  const sphereMat = new THREE.MeshStandardMaterial({ map: info.texture });
+  const mesh = new THREE.Mesh(sphereGeo, sphereMat);
+  const obj = (new THREE.Object3D).add(mesh);
+  mesh.position.x = info.position;
+  if (info.bumpMap) {
+    sphereMat.bumpMap = info.texture;
+    sphereMat.bumpScale = 0.1;
+  }
+  if (info.ring) {
+    var ringMesh = createRing(info.ring.innerRadius, info.ring.outerRadius, 30, info.ring.texture)
+  }
+  if (ringMesh) { mesh.add(ringMesh); }
+  if (alternativeToScene) { alternativeToScene.add(obj); }
+  else { scene.add(obj); }
+  return { obj, mesh }
+};
 
 const textureLoader = new THREE.TextureLoader();
 const stars = textureLoader.load(starsPath);
@@ -164,15 +182,15 @@ sunRays.scale.set(1.4, 1.4, 1.4);
 const background = createSphere(900, 30, 30, stars, false, true, 'basic');
 scene.add(sun, sunRays, background);
 
-const mercury = createPlanet(scene, planets.mercury);
-const venus = createPlanet(scene, planets.venus);
-const earth = createPlanet(scene, planets.earth);
-const moon = createPlanet(earth.mesh, planets.moon);
-const mars = createPlanet(scene, planets.mars);
-const jupiter = createPlanet(scene, planets.jupiter);
-const saturn = createPlanet(scene, planets.saturn);
-const uranus = createPlanet(scene, planets.uranus);
-const neptune = createPlanet(scene, planets.neptune);
+const mercury = createPlanet(planets.mercury);
+const venus = createPlanet(planets.venus);
+const earth = createPlanet(planets.earth);
+const moon = createPlanet(planets.moon, earth.mesh);
+const mars = createPlanet(planets.mars);
+const jupiter = createPlanet(planets.jupiter);
+const saturn = createPlanet(planets.saturn);
+const uranus = createPlanet(planets.uranus);
+const neptune = createPlanet(planets.neptune);
 
 for (let planetName in planets) {
   const planet = planets[planetName];

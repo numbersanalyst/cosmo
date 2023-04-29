@@ -14,7 +14,6 @@ const textures = {
   sun: textureLoader.load(sunPath),
   stars: textureLoader.load(starsPath),
 };
-const colorLight = new THREE.Color('hsl(255, 100%, 100%)');
 
 let scene, camera, controls, renderer;
 
