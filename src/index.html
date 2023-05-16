@@ -8,6 +8,11 @@
     <link rel="icon" type="image/x-icon" href="/pictures/favicon.ico">
   </head>
   <body>
+    <script>
+function alertFunc() {
+  alert("Wysłano formularz.");
+}
+</script>
     <header>
       <a href="https://olimpiaoli127311.github.io/poczta-onet/"><img class="logo" src="/pictures/logo.png" alt="logo" style="width: 150px; height:75px;"/></a>
       <nav>
@@ -85,7 +90,7 @@
         </table>
         <textarea max="350" placeholder="Maksymalnie 350 słów."></textarea>
         <br />
-        <input type="submit" id="send" value="Wyślij" />
+        <input type="submit" id="send" value="Wyślij" onclick="alertFunc()"/>
       </form>
       <br />
       <hr
