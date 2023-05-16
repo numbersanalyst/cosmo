@@ -7,6 +7,13 @@ Open the project and type:
 npm install
 npm run dev
 ```
+Then go to http://localhost:5173/
+#### Or you can build this project by typing:
+```
+npm install
+npm run build
+```
+Then open the index file to see project
 
 ## Source
 * [three.js](https://threejs.org/)
