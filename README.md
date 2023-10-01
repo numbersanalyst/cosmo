@@ -26,3 +26,11 @@ Then open the index file to see project
   * [visibleearth.nasa.gov](https://visibleearth.nasa.gov/)
   * [devianart](https://www.deviantart.com/niko22966/art/Rings-of-Saturn-419585311)
   * [solarsystem.nasa.gov](https://solarsystem.nasa.gov/resources/531/enhanced-color-mercury-map/)
+
+### Todo list
+In the future, Cosmo will change based on the following points:
+* change the name of project
+* move to react
+* use fiberjs insted of three js
+* add loading bar
+* refresh style with tailwindcss
